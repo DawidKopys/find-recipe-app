@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+.reset-filters-container img {
+  padding-left: 10px;
+}
+
 #reset-filters-button {
   display: flex;
   align-items: center;

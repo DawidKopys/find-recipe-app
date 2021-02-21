@@ -2,6 +2,7 @@
 .add-filters-container {
   display: flex;
   align-items: center;
+  padding-right: 10px;
 }
 
 #add-filters-button {
@@ -12,6 +13,7 @@
 
 #add-filters-button img {
   padding-right: 10px;
+  padding-left: 10px;
 }
 
 /* typography */
@@ -20,4 +22,5 @@
   font-size: 0.9375rem; /* 15px for 16px html */
   font-weight: 400;
   font-style: normal;
+  white-space: nowrap;
 }

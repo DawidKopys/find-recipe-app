@@ -2,16 +2,25 @@
 .choose-category-container {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 2;
 }
 
 #choose-category-button {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   height: 100%;
 }
 
 #choose-category-button img {
   padding-left: 10px;
+}
+
+@media screen and (max-width: 400px) {
+  #choose-category-button img {
+    padding-right: 10px;
+  }
 }
 
 /* typography */
