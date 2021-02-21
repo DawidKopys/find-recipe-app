@@ -4,13 +4,15 @@ import ResetFiltersIcon from '../../public/icon-refresh.svg';
 
 const ResetFiltersButton = () => {
   return (
-    <button id='reset-filters-button'>
-      <img
-        src={ResetFiltersIcon}
-        id='reset-filters-image'
-        alt='reset filters icon'
-      />
-    </button>
+    <div className='reset-filters-container'>
+      <button id='reset-filters-button'>
+        <img
+          src={ResetFiltersIcon}
+          id='reset-filters-image'
+          alt='reset filters icon'
+        />
+      </button>
+    </div>
   );
 };
 

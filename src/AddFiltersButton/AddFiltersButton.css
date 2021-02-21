@@ -1,7 +1,13 @@
 /* button layout */
+.add-filters-container {
+  display: flex;
+  align-items: center;
+}
+
 #add-filters-button {
   display: flex;
   align-items: center;
+  height: 100%;
 }
 
 #add-filters-button img {

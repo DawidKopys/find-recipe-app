@@ -1,7 +1,13 @@
 /* button layout */
+.choose-category-container {
+  display: flex;
+  align-items: center;
+}
+
 #choose-category-button {
   display: flex;
   align-items: center;
+  height: 100%;
 }
 
 #choose-category-button img {
