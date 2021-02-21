@@ -1,0 +1,5 @@
+/* button layout */
+#reset-filters-button {
+  display: flex;
+  align-items: center;
+}

@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HelloWorld from './HelloWorld';
+import FindRecipeApp from './FindRecipeApp';
 import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <HelloWorld />
+    <FindRecipeApp />
   </React.StrictMode>,
   document.getElementById('root')
 );

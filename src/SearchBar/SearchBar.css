@@ -1,0 +1,39 @@
+.recipe-search-container {
+  margin: 25px;
+  position: relative;
+}
+
+#recipe-search-input {
+  height: 44px;
+  width: 100%;
+  padding: 12px 0px 12px 45px;
+  border: 1px solid #828282;
+  border-radius: 22px;
+}
+
+.recipe-search-container::after {
+  content: '';
+  display: block;
+  width: 21px;
+  height: 21px;
+  background-image: url('./../../public/icon-search.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 11px;
+  left: 14px;
+}
+
+/* typography */
+#recipe-search-input,
+#recipe-search-input::placeholder {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9375rem; /* 15px for 16px html */
+  font-weight: 100;
+  font-style: normal;
+}
+
+#recipe-search-input::placeholder {
+  color: #828282;
+}

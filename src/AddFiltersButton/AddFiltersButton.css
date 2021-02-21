@@ -1,0 +1,17 @@
+/* button layout */
+#add-filters-button {
+  display: flex;
+  align-items: center;
+}
+
+#add-filters-button img {
+  padding-right: 10px;
+}
+
+/* typography */
+#add-filters-button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9375rem; /* 15px for 16px html */
+  font-weight: 400;
+  font-style: normal;
+}

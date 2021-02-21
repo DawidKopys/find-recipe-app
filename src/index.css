@@ -22,3 +22,36 @@ button {
   background: none;
   border: none;
 }
+
+/* Screen Readers specific */
+.sr-only {
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+  position: absolute;
+}
+
+/* Fonts */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/public/fonts/Poppins-Light.otf');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/public/fonts/Poppins-Regular.otf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/public/fonts/Poppins-Bold.otf');
+  font-weight: 700;
+  font-style: normal;
+}
