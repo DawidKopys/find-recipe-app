@@ -16,7 +16,7 @@
   display: block;
   width: 21px;
   height: 21px;
-  background-image: url('./../../public/icon-search.svg');
+  background-image: url('./../assets/icon-search.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

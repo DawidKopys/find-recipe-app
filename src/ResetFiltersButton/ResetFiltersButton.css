@@ -6,6 +6,7 @@
 
 .reset-filters-container img {
   padding-left: 10px;
+  width: 30px;
 }
 
 #reset-filters-button {
