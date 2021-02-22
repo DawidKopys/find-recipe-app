@@ -24,15 +24,31 @@
 /**************** Recipe Cards **************/
 /* Recipe cards layout */
 .recipe-card {
-  height: 150px;
+  height: 130px;
   display: grid;
   grid-template-columns: 105px 1fr;
   gap: 20px;
+  margin: 20px;
+  margin-bottom: 10px;
+}
+
+.recipe-card img {
+  align-self: center;
+}
+
+.recipe-card .recipe-info-container > p {
+  margin-top: 30px;
+}
+
+.recipe-card .recipe-info-container > h3 {
+  margin-top: 10px;
 }
 
 .recipe-macro-container {
   display: flex;
   justify-content: space-between;
+  padding-right: 20px;
+  max-width: 280px;
 }
 
 /* Typography */
@@ -41,7 +57,7 @@
   font-style: normal;
 }
 
-.recipe-card .recipe-info-container h3 {
+.recipe-card .recipe-info-container > h3 {
   font-size: 1.1rem;
   font-weight: 700;
 }
@@ -53,13 +69,13 @@
   text-transform: uppercase;
 }
 
-.recipe-card .recipe-info-container .recipe-macro p,
-.recipe-card .recipe-info-container .recipe-macro h4 {
+.recipe-card .recipe-info-container .recipe-macro > p,
+.recipe-card .recipe-info-container .recipe-macro > h4 {
   font-size: 0.8rem;
   font-weight: 100;
   text-align: center;
 }
-.recipe-card .recipe-info-container .recipe-macro h4 {
+.recipe-card .recipe-info-container .recipe-macro > h4 {
   color: #828282;
   text-transform: capitalize;
 }
