@@ -1,4 +1,4 @@
-/**************** Filters Bar **************/
+/**************** Filters Bar  **************/
 /* Filters bar layout */
 .filters-bar {
   display: flex;
@@ -30,13 +30,79 @@
 .filters-bar::after {
   content: '';
   display: block;
-  height: 30px;
+  height: 40px;
   width: 100vw;
   position: absolute;
   left: 0;
   bottom: -15px;
-  box-shadow: 0px 5px 5px 0px rgba(130, 130, 130, 0.7);
-  border-bottom: 1px solid rgba(130, 130, 130, 0.7);
+  box-shadow: 0px 5px 6px 0px rgba(130, 130, 130, 0.7);
+}
+
+/**************** Modals       **************/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+}
+
+/* Recipe Categories modal */
+.modal .recipe-categories-content {
+  margin: 10px;
+  position: relative;
+}
+
+/* Header */
+.modal .recipe-categories-content h2 {
+  margin: 25px 10px 30px 10px;
+  position: relative;
+}
+
+.modal .recipe-categories-content h2::after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 1px;
+  width: 90%;
+  background-color: black;
+  bottom: -5px;
+  left: 5%;
+}
+
+/* Exit button */
+.modal .recipe-categories-content #btn-exit {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: -5px;
+  right: 15px;
+  background-image: url('./assets/icon-cross-grey.svg');
+}
+
+/* List elements */
+.modal .recipe-categories-content li {
+  height: 45px;
+  list-style-type: none;
+}
+
+.modal .recipe-categories-content .btn-category {
+  padding-left: 40px;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  background-image: url('./assets/icon-checkbox-grey-unchecked.svg');
+  background-repeat: no-repeat;
+  background-position: 10px center;
+}
+
+.modal .recipe-categories-content .btn-category.checked {
+  background-image: url('./assets/icon-checkbox-black-checked.svg');
+  color: #7b61ff;
+  background-color: #e5e5e5;
 }
 
 /**************** Recipe Cards **************/
@@ -95,4 +161,14 @@
 .recipe-card .recipe-info-container .recipe-macro > h4 {
   color: #828282;
   text-transform: capitalize;
+}
+
+.modal {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+}
+
+.modal .recipe-categories-content h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
 }

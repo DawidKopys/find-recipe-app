@@ -52,6 +52,32 @@ const FindRecipeApp = () => {
           );
         })}
       </section>
+      <section className='modal recipe-categories'>
+        <div className='recipe-categories-content'>
+          <h2>Recipe Categories</h2>
+          <button id='btn-exit' />
+          <ul>
+            <li>
+              <button className='btn-category checked'>All</button>
+            </li>
+            <li>
+              <button className='btn-category'>Main Courses</button>
+            </li>
+            <li>
+              <button className='btn-category'>Breakfasts and suppers</button>
+            </li>
+            <li>
+              <button className='btn-category'>Smoothies</button>
+            </li>
+            <li>
+              <button className='btn-category'>Snacks</button>
+            </li>
+            <li>
+              <button className='btn-category'>Salads</button>
+            </li>
+          </ul>
+        </div>
+      </section>
     </>
   );
 };
