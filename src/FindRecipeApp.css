@@ -50,6 +50,10 @@
   background-color: white;
 }
 
+.modal-open {
+  display: block;
+}
+
 /* Recipe Categories modal */
 .modal .recipe-categories-content {
   margin: 10px;

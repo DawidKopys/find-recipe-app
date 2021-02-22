@@ -52,7 +52,7 @@ const FindRecipeApp = () => {
           );
         })}
       </section>
-      <section className='modal recipe-categories'>
+      <section className='modal modal-open recipe-categories'>
         <div className='recipe-categories-content'>
           <h2>Recipe Categories</h2>
           <button id='btn-exit' />
