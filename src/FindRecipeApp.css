@@ -47,6 +47,7 @@
   top: 0;
   width: 100%;
   height: 100vh;
+  overflow-y: auto;
   background-color: white;
 }
 
@@ -54,19 +55,18 @@
   display: block;
 }
 
-/* Recipe Categories modal */
-.modal .recipe-categories-content {
+.modal .modal-content-container {
   margin: 10px;
   position: relative;
 }
 
-/* Header */
-.modal .recipe-categories-content h2 {
-  margin: 25px 10px 30px 10px;
+.modal .modal-content-container h2 {
+  margin: 25px 10px 22px 10px;
   position: relative;
 }
 
-.modal .recipe-categories-content h2::after {
+/* Header */
+.modal .modal-content-container h2::after {
   content: '';
   display: block;
   position: absolute;
@@ -78,7 +78,7 @@
 }
 
 /* Exit button */
-.modal .recipe-categories-content #btn-exit {
+.modal .modal-content-container #btn-modal-exit {
   position: absolute;
   width: 25px;
   height: 25px;
@@ -88,25 +88,75 @@
 }
 
 /* List elements */
-.modal .recipe-categories-content li {
+.modal .modal-content-container li {
   height: 45px;
   list-style-type: none;
 }
 
-.modal .recipe-categories-content .btn-category {
-  padding-left: 40px;
+.btn-modal {
+  padding-left: 20px;
   width: 100%;
   height: 100%;
   text-align: left;
   background-image: url('./assets/icon-checkbox-grey-unchecked.svg');
   background-repeat: no-repeat;
-  background-position: 10px center;
+  background-position: right 30px top 50%;
 }
 
-.modal .recipe-categories-content .btn-category.checked {
+/* Recipe Categories modal */
+.btn-modal.btn-radio.checked {
   background-image: url('./assets/icon-checkbox-black-checked.svg');
   color: #7b61ff;
   background-color: #e5e5e5;
+}
+
+/* Add Filters modal */
+.btn-modal.btn-checkbox.checked {
+  background-image: url('./assets/icon-checkbox-black-ticked.svg');
+  color: #7b61ff;
+}
+
+.ingredients-search-input-container {
+  margin: 0 auto;
+  width: 70%;
+}
+
+#ingredients-search-input {
+  height: 44px;
+  padding: 12px;
+  margin-top: 10px;
+  width: 100%;
+  padding-left: 20px;
+  border: 1px solid #828282;
+  border-radius: 22px;
+  background-image: url('./assets/icon-add-ingredients.svg');
+  background-repeat: no-repeat;
+  background-position: right 15px top 50%;
+}
+
+.ingredients-container {
+  margin: 25px auto;
+  width: 85%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.btn-ingredient {
+  font-size: 0.9375rem;
+  padding-left: 10px;
+  padding-right: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  line-height: 2;
+  color: white;
+  background-color: #7b61ff;
+  background-image: url('./assets/icon-cross-ingredients.svg');
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  border-radius: 15px;
+  box-shadow: 2px 2px 2px 1px #dcdcdc;
 }
 
 /**************** Recipe Cards **************/
@@ -175,7 +225,7 @@
   font-style: normal;
 }
 
-.modal .recipe-categories-content h2 {
+.modal .modal-content-container h2 {
   font-size: 1.2rem;
   font-weight: 700;
 }
