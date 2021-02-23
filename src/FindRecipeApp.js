@@ -28,23 +28,25 @@ const FindRecipeApp = () => {
               <img src={image} alt={name} />
               <div className='recipe-info-container'>
                 <h3>{name}</h3>
-                <p>Macro per serving:</p>
-                <div className='recipe-macro-container'>
-                  <div className='recipe-macro'>
-                    <p>{calories}</p>
-                    <h4>kcal</h4>
-                  </div>
-                  <div className='recipe-macro'>
-                    <p>{protein}</p>
-                    <h4>protein</h4>
-                  </div>
-                  <div className='recipe-macro'>
-                    <p>{carbs}</p>
-                    <h4>carbs</h4>
-                  </div>
-                  <div className='recipe-macro'>
-                    <p>{fats}</p>
-                    <h4>fats</h4>
+                <div>
+                  <p className='recipe-macro-per-serving'>Macro per serving:</p>
+                  <div className='recipe-macro-container'>
+                    <div className='recipe-macro'>
+                      <p>{calories}</p>
+                      <h4>kcal</h4>
+                    </div>
+                    <div className='recipe-macro'>
+                      <p>{protein}</p>
+                      <h4>protein</h4>
+                    </div>
+                    <div className='recipe-macro'>
+                      <p>{carbs}</p>
+                      <h4>carbs</h4>
+                    </div>
+                    <div className='recipe-macro'>
+                      <p>{fats}</p>
+                      <h4>fats</h4>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -52,7 +54,7 @@ const FindRecipeApp = () => {
           );
         })}
       </section>
-      <section className='modal modal-open recipe-categories'>
+      <section className='modal recipe-categories'>
         <div className='recipe-categories-content'>
           <h2>Recipe Categories</h2>
           <button id='btn-exit' />
