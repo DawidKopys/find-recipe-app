@@ -8,13 +8,22 @@ import ResetFiltersButton from './ResetFiltersButton/ResetFiltersButton';
 
 const FindRecipeApp = () => {
   const [addIngredientsInput, setAddIngredientsInput] = useState('');
+  const [openedModal, setOpenedModal] = useState('none');
 
   return (
     <>
       <SearchBar />
       <section className='filters-bar'>
-        <ChooseCategoryButton />
-        <AddFiltersButton />
+        <ChooseCategoryButton
+          onClick={() => {
+            setOpenedModal('recipe-categories');
+          }}
+        />
+        <AddFiltersButton
+          onClick={() => {
+            setOpenedModal('add-filters');
+          }}
+        />
         <ResetFiltersButton />
       </section>
       <section className='recipes-container'>
@@ -56,10 +65,20 @@ const FindRecipeApp = () => {
           );
         })}
       </section>
-      <section className='modal recipe-categories'>
+      <section
+        className={`modal recipe-categories ${
+          openedModal === 'recipe-categories' ? 'modal-open' : ''
+        }`}
+      >
         <div className='modal-content-container'>
           <h2>Recipe Categories</h2>
-          <button id='btn-modal-exit' />
+          <button
+            className='btn'
+            id='btn-modal-exit'
+            onClick={() => {
+              setOpenedModal('none');
+            }}
+          />
           <ul>
             <li>
               <button className='btn-modal btn-radio checked'>All</button>
@@ -84,30 +103,46 @@ const FindRecipeApp = () => {
           </ul>
         </div>
       </section>
-      <section className='modal modal-open add-filters'>
+      <section
+        className={`modal add-filters ${
+          openedModal === 'add-filters' ? 'modal-open' : ''
+        }`}
+      >
         <div className='modal-content-container'>
           <h2>Add Filters</h2>
-          <button id='btn-modal-exit' />
+          <button
+            className='btn'
+            id='btn-modal-exit'
+            onClick={() => {
+              setOpenedModal('none');
+            }}
+          />
           <ul>
             <li>
-              <button className='btn-modal btn-checkbox checked'>
+              <button className='btn btn-modal btn-checkbox checked'>
                 Vegetarian
               </button>
             </li>
             <li>
-              <button className='btn-modal btn-checkbox'>Vegan</button>
+              <button className='btn btn-modal btn-checkbox'>Vegan</button>
             </li>
             <li>
-              <button className='btn-modal btn-checkbox checked'>Keto</button>
+              <button className='btn btn-modal btn-checkbox checked'>
+                Keto
+              </button>
             </li>
             <li>
-              <button className='btn-modal btn-checkbox'>Gluten Free</button>
+              <button className='btn btn-modal btn-checkbox'>
+                Gluten Free
+              </button>
             </li>
             <li>
-              <button className='btn-modal btn-radio'>Diary Free</button>
+              <button className='btn btn-modal btn-checkbox'>Diary Free</button>
             </li>
             <li>
-              <button className='btn-modal btn-radio'>High Protein</button>
+              <button className='btn btn-modal btn-checkbox'>
+                High Protein
+              </button>
             </li>
           </ul>
           <h2>Filter by ingredients</h2>
@@ -127,12 +162,12 @@ const FindRecipeApp = () => {
             />
           </div>
           <div className='ingredients-container'>
-            <button className='btn-ingredient'>Eggs</button>
-            <button className='btn-ingredient'>Spinach</button>
-            <button className='btn-ingredient'>Avocado</button>
-            <button className='btn-ingredient'>Banana</button>
-            <button className='btn-ingredient'>Garlic</button>
-            <button className='btn-ingredient'>Toast Bread</button>
+            <button className='btn btn-ingredient'>Eggs</button>
+            <button className='btn btn-ingredient'>Spinach</button>
+            <button className='btn btn-ingredient'>Avocado</button>
+            <button className='btn btn-ingredient'>Banana</button>
+            <button className='btn btn-ingredient'>Garlic</button>
+            <button className='btn btn-ingredient'>Toast Bread</button>
           </div>
         </div>
       </section>

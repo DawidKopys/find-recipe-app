@@ -36,6 +36,7 @@
   left: 0;
   bottom: -15px;
   box-shadow: 0px 5px 6px 0px rgba(130, 130, 130, 0.2);
+  z-index: -1;
 }
 
 /**************** Modals       **************/

@@ -23,6 +23,10 @@ button {
   border: none;
 }
 
+.btn {
+  cursor: pointer;
+}
+
 /* Screen Readers specific */
 .sr-only {
   width: 1px;

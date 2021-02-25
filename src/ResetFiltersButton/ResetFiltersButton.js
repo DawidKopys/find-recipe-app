@@ -5,7 +5,7 @@ import ResetFiltersIcon from '../assets/icon-refresh.svg';
 const ResetFiltersButton = () => {
   return (
     <div className='reset-filters-container'>
-      <button id='reset-filters-button'>
+      <button className='btn' id='reset-filters-button'>
         <img
           src={ResetFiltersIcon}
           id='reset-filters-image'
