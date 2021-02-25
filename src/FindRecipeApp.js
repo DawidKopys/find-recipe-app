@@ -140,11 +140,17 @@ const FindRecipeApp = () => {
             id,
             name,
             macro: { calories, protein, carbs, fats },
-            image,
+            imageMobile,
+            imageDesktop,
           } = recipe;
           return (
             <div className='recipe-card' key={id}>
-              <img src={image} alt={name} />
+              <img
+                srcSet={`${imageMobile} 105w, ${imageDesktop} 640w`}
+                sizes='(max-width: 800px) 105px, 150px'
+                src={imageMobile}
+                alt={name}
+              />
               <div className='recipe-info-container'>
                 <h3>{name}</h3>
                 <div className='recipe-macro-container'>
