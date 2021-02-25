@@ -16,12 +16,12 @@ const FindRecipeApp = () => {
       <section className='filters-bar'>
         <ChooseCategoryButton
           onClick={() => {
-            setOpenedModal('recipe-categories');
+            setOpenedModal('recipe-categories-modal');
           }}
         />
         <AddFiltersButton
           onClick={() => {
-            setOpenedModal('add-filters');
+            setOpenedModal('add-filters-modal');
           }}
         />
         <ResetFiltersButton />
@@ -66,8 +66,8 @@ const FindRecipeApp = () => {
         })}
       </section>
       <section
-        className={`modal recipe-categories ${
-          openedModal === 'recipe-categories' ? 'modal-open' : ''
+        className={`modal recipe-categories-modal ${
+          openedModal === 'recipe-categories-modal' ? 'modal-open' : ''
         }`}
       >
         <div className='modal-content-container'>
@@ -104,8 +104,8 @@ const FindRecipeApp = () => {
         </div>
       </section>
       <section
-        className={`modal add-filters ${
-          openedModal === 'add-filters' ? 'modal-open' : ''
+        className={`modal add-filters-modal ${
+          openedModal === 'add-filters-modal' ? 'modal-open' : ''
         }`}
       >
         <div className='modal-content-container'>
