@@ -79,7 +79,7 @@
 }
 
 /* Exit button */
-.modal .modal-content-container #btn-modal-exit {
+.btn-modal-exit {
   position: absolute;
   width: 25px;
   height: 25px;
@@ -158,6 +158,33 @@
   background-position: right 10px top 50%;
   border-radius: 15px;
   box-shadow: 2px 2px 2px 1px #dcdcdc;
+}
+
+@media screen and (min-width: 800px) {
+  /**************** Sidebar      **************/
+  .recipe-finder-app {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    max-width: 1400px;
+    min-width: 800px;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .modal {
+    display: block;
+    position: inherit;
+    width: auto;
+    height: auto;
+  }
+
+  .btn-modal-exit {
+    display: none;
+  }
+
+  .filters-bar {
+    display: none;
+  }
 }
 
 /**************** Recipe Cards **************/
