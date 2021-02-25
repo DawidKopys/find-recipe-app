@@ -7,7 +7,7 @@ import AddFiltersButton from './AddFiltersButton/AddFiltersButton';
 import ResetFiltersButton from './ResetFiltersButton/ResetFiltersButton';
 
 const FindRecipeApp = () => {
-  const [userInput, setUserInput] = useState('');
+  const [addIngredientsInput, setAddIngredientsInput] = useState('');
 
   return (
     <>
@@ -120,9 +120,9 @@ const FindRecipeApp = () => {
               id='ingredients-search-input'
               name='ingredients-search-input'
               placeholder='Add ingredients'
-              value={userInput}
+              value={addIngredientsInput}
               onChange={(e) => {
-                setUserInput(e.target.value);
+                setAddIngredientsInput(e.target.value);
               }}
             />
           </div>
