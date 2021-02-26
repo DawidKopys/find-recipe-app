@@ -5,7 +5,7 @@ const SearchBar = () => {
   const [userInput, setUserInput] = useState('');
 
   return (
-    <section className='recipe-search-container'>
+    <section className='search-bar'>
       <label htmlFor='recipe-search-input' className='sr-only'>
         Find Recipe
       </label>
@@ -13,6 +13,7 @@ const SearchBar = () => {
         type='text'
         id='recipe-search-input'
         name='recipe-search-input'
+        className='search-bar__input'
         placeholder='Find Recipe'
         value={userInput}
         onChange={(e) => {
