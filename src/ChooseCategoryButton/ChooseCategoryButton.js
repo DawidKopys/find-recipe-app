@@ -4,7 +4,7 @@ import MenuIcon from '../assets/icon-arrow-downward.svg';
 
 const ChooseCategoryButton = ({ onClick }) => {
   return (
-    <div className='choose-category-btn-container'>
+    <div className='choose-category-btn-container filters-bar__item'>
       <button className='choose-category-btn btn' onClick={onClick}>
         <span className='choose-category-btn__text'>Choose Category</span>
         <img

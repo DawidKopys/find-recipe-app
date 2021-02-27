@@ -2,18 +2,17 @@
 /* Filters bar layout */
 .filters-bar {
   display: flex;
-  justify-content: space-around;
   margin-bottom: 25px;
   padding: 0 25px;
   height: 40px;
 }
 
-.filters-bar > * {
+.filters-bar__item {
   flex-grow: 1;
 }
 
 /* Filters bar separators */
-.filters-bar > :not(:first-child)::before {
+.filters-bar__item:not(:first-child)::before {
   content: '';
   display: block;
   width: 1px;

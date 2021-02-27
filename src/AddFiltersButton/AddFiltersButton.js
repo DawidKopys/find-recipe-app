@@ -4,7 +4,7 @@ import MenuIcon from '../assets/icon-filter.svg';
 
 const AddFiltersButton = ({ onClick }) => {
   return (
-    <div className='filters-btn-container'>
+    <div className='filters-btn-container filters-bar__item'>
       <button className='filters-btn btn' onClick={onClick}>
         <img src={MenuIcon} className='filters-btn__img' alt='filter icon' />
         <span className='filters-btn__text'>Filters</span>
