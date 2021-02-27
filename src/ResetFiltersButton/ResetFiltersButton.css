@@ -5,12 +5,12 @@
   justify-content: space-around;
 }
 
-.reset-filters-container img {
-  padding-left: 10px;
-  width: 30px;
-}
-
-#reset-filters-button {
+.reset-filters-btn {
   display: flex;
   align-items: center;
+}
+
+.reset-filters-btn__img {
+  padding-left: 10px;
+  width: 30px;
 }
