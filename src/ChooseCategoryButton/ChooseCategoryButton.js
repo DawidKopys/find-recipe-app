@@ -5,11 +5,11 @@ import MenuIcon from '../assets/icon-arrow-downward.svg';
 const ChooseCategoryButton = ({ onClick }) => {
   return (
     <div className='choose-category-btn-container'>
-      <button className='btn' id='choose-category-btn' onClick={onClick}>
-        <span className='buttontext'>Choose Category</span>
+      <button className='choose-category-btn btn' onClick={onClick}>
+        <span className='choose-category-btn__text'>Choose Category</span>
         <img
           src={MenuIcon}
-          id='choose-category-image'
+          className='choose-category-btn__img'
           alt='drowdown menu icon'
         />
       </button>

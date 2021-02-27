@@ -1,7 +1,8 @@
 /* button layout */
 .reset-filters-container {
   display: flex;
-  align-items: center;
+  align-items: stretch;
+  justify-content: space-around;
 }
 
 .reset-filters-container img {
@@ -12,5 +13,4 @@
 #reset-filters-button {
   display: flex;
   align-items: center;
-  height: 100%;
 }
