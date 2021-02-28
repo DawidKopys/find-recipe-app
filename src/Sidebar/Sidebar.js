@@ -15,7 +15,7 @@ const Sidebar = () => {
   };
 
   return (
-    <section className='sidebar'>
+    <section className='sidebar recipe-finder-app__sidebar'>
       <SearchBar />
       <ModalCategories
         isOpen={openedModal === 'recipe-categories-modal'}
