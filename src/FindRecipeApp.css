@@ -1,164 +1,3 @@
-/**************** Filters Bar  **************/
-/* Filters bar layout */
-.filters-bar {
-  display: flex;
-  margin-bottom: 25px;
-  padding: 0 25px;
-  height: 40px;
-}
-
-.filters-bar__item {
-  flex-grow: 1;
-}
-
-/* Filters bar separators */
-.filters-bar__item:not(:first-child)::before {
-  content: '';
-  display: block;
-  width: 1px;
-  height: 20px;
-  background-color: rgba(130, 130, 130, 0.7);
-  align-self: center;
-}
-
-/* Filters Bar shadow */
-.filters-bar {
-  position: relative;
-}
-
-.filters-bar::after {
-  content: '';
-  display: block;
-  height: 40px;
-  width: 100%;
-  position: absolute;
-  left: 0;
-  bottom: -15px;
-  box-shadow: 0px 5px 6px 0px rgba(130, 130, 130, 0.2);
-  z-index: -1;
-}
-
-/**************** Modals       **************/
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  overflow-y: auto;
-  background-color: white;
-}
-
-.modal-open {
-  display: block;
-}
-
-.modal .modal-content-container {
-  margin: 10px;
-  position: relative;
-}
-
-.modal .modal-content-container h2 {
-  margin: 25px 10px 22px 10px;
-  position: relative;
-}
-
-/* Header */
-.modal .modal-content-container h2::after {
-  content: '';
-  display: block;
-  position: absolute;
-  height: 1px;
-  width: 90%;
-  background-color: black;
-  bottom: -5px;
-  left: 5%;
-}
-
-/* Exit button */
-.btn-modal-exit {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  top: -5px;
-  right: 15px;
-  background-image: url('./assets/icon-cross-grey.svg');
-}
-
-/* List elements */
-.modal .modal-content-container li {
-  height: 45px;
-  list-style-type: none;
-}
-
-.btn-modal {
-  padding-left: 20px;
-  width: 100%;
-  height: 100%;
-  text-align: left;
-  background-image: url('./assets/icon-checkbox-grey-unchecked.svg');
-  background-repeat: no-repeat;
-  background-position: right 30px top 50%;
-}
-
-/* Recipe Categories modal */
-.btn-modal.btn-radio.checked {
-  background-image: url('./assets/icon-checkbox-black-checked.svg');
-  color: #7b61ff;
-  background-color: #e5e5e5;
-}
-
-/* Add Filters modal */
-.btn-modal.btn-checkbox.checked {
-  background-image: url('./assets/icon-checkbox-black-ticked.svg');
-  color: #7b61ff;
-}
-
-.ingredients-search-input-container {
-  margin: 0 auto;
-  width: 70%;
-}
-
-#ingredients-search-input {
-  height: 44px;
-  padding: 12px;
-  margin-top: 10px;
-  width: 100%;
-  padding-left: 20px;
-  border: 1px solid #828282;
-  border-radius: 22px;
-  background-image: url('./assets/icon-add-ingredients.svg');
-  background-repeat: no-repeat;
-  background-position: right 15px top 50%;
-}
-
-.ingredients-container {
-  margin: 25px auto;
-  width: 85%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
-.btn-ingredient {
-  font-size: 0.9375rem;
-  padding-left: 10px;
-  padding-right: 30px;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 10px;
-  line-height: 2;
-  color: white;
-  background-color: #7b61ff;
-  background-image: url('./assets/icon-cross-ingredients.svg');
-  background-repeat: no-repeat;
-  background-position: right 10px top 50%;
-  border-radius: 15px;
-  box-shadow: 2px 2px 2px 1px #dcdcdc;
-}
-
 /**************** Recipe Cards **************/
 /* Recipe cards layout */
 .recipe-card {
@@ -172,7 +11,7 @@
 
 .recipe-card img {
   align-self: center;
-  max-height: 100%; /* so that image shrinks on hover */
+  max-height: 100%;
 }
 
 .recipe-info-container {
@@ -223,18 +62,8 @@
   text-align: center;
 }
 
-.modal {
-  font-family: 'Poppins', sans-serif;
-  font-style: normal;
-}
-
-.modal .modal-content-container h2 {
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-
 @media screen and (min-width: 800px) {
-  /**************** Sidebar      **************/
+  /* app layout */
   .recipe-finder-app {
     display: grid;
     grid-template-columns: 320px 1fr;
@@ -242,21 +71,6 @@
     min-width: 800px;
     width: 80%;
     margin: 0 auto;
-  }
-
-  .modal {
-    display: block;
-    position: inherit;
-    width: auto;
-    height: auto;
-  }
-
-  .btn-modal-exit {
-    display: none;
-  }
-
-  .filters-bar {
-    display: none;
   }
 
   /**************** Recipe Cards **************/
