@@ -1,9 +1,11 @@
-/**************** Filters Bar  **************/
+.sidebar__filters-bar {
+  margin-bottom: 25px;
+  padding: 0 25px;
+}
+
 /* Filters bar layout */
 .filters-bar {
   display: flex;
-  margin-bottom: 25px;
-  padding: 0 25px;
   height: 40px;
 }
 

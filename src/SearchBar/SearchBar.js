@@ -5,7 +5,7 @@ const SearchBar = () => {
   const [userInput, setUserInput] = useState('');
 
   return (
-    <section className='search-bar'>
+    <section className='search-bar sidebar__search-bar'>
       <label htmlFor='recipe-search-input' className='sr-only'>
         Find Recipe
       </label>

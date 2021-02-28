@@ -25,7 +25,7 @@ const Sidebar = () => {
         isOpen={openedModal === 'add-filters-modal'}
         closeModal={closeModal}
       />
-      <section className='filters-bar'>
+      <section className='filters-bar sidebar__filters-bar'>
         <ChooseCategoryButton
           onClick={() => {
             setOpenedModal('recipe-categories-modal');

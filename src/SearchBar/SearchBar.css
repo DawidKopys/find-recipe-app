@@ -1,6 +1,9 @@
-.search-bar {
+.sidebar__search-bar {
   margin: 25px;
   margin-bottom: 15px;
+}
+
+.search-bar {
   position: relative;
 }
 
