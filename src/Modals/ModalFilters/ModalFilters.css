@@ -1,4 +1,4 @@
-.btn-modal.btn-checkbox.checked {
+.modal-content__btn--type--checkbox.checked {
   background-image: url('../../assets/icon-checkbox-black-ticked.svg');
   color: #7b61ff;
 }

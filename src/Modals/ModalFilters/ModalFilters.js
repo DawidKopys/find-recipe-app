@@ -7,21 +7,22 @@ const ModalFilters = ({ isOpen, closeModal }) => {
   const [addIngredientsInput, setAddIngredientsInput] = useState('');
 
   return (
-    <section
-      className={`modal add-filters-modal ${isOpen ? 'modal-open' : ''}`}
-    >
-      <div className='modal-content-container'>
-        <h2>Add Filters</h2>
-        <button className='btn btn-modal-exit' onClick={closeModal} />
+    <section class={`modal${isOpen ? ' modal--open' : ''}`}>
+      <div className='modal-content modal__container'>
+        <h2 className='modal-content__heading'>Add Filters</h2>
+        <button className='modal-content__btn-exit btn' onClick={closeModal} />
         <ul>
           {filters.map((filter) => (
-            <li>
-              <button className='btn btn-modal btn-checkbox'>{filter}</button>
+            <li className='modal-content__list-item'>
+              <button className='modal-content__btn modal-content__btn--type--checkbox btn'>
+                {filter}
+              </button>
             </li>
           ))}
         </ul>
-        <h2>Filter by ingredients</h2>
-        <div className='ingredients-search-input-container'>
+
+        <h2 className='modal-content__heading'>Filter by ingredients</h2>
+        <div className='ingredients-input modal-content__ingredients-input'>
           <label htmlFor='ingredients-search-input' className='sr-only'>
             Find Recipe
           </label>
@@ -29,6 +30,7 @@ const ModalFilters = ({ isOpen, closeModal }) => {
             type='text'
             id='ingredients-search-input'
             name='ingredients-search-input'
+            className='ingredients-input__input'
             placeholder='Add ingredients'
             value={addIngredientsInput}
             onChange={(e) => {
@@ -36,13 +38,13 @@ const ModalFilters = ({ isOpen, closeModal }) => {
             }}
           />
         </div>
-        <div className='ingredients-container'>
-          <button className='btn btn-ingredient'>Eggs</button>
-          <button className='btn btn-ingredient'>Spinach</button>
-          <button className='btn btn-ingredient'>Avocado</button>
-          <button className='btn btn-ingredient'>Banana</button>
-          <button className='btn btn-ingredient'>Garlic</button>
-          <button className='btn btn-ingredient'>Toast Bread</button>
+        <div className='ingredients-list modal-content__ingredients-list'>
+          <button className='ingredients-list__item btn'>Eggs</button>
+          <button className='ingredients-list__item btn'>Spinach</button>
+          <button className='ingredients-list__item btn'>Avocado</button>
+          <button className='ingredients-list__item btn'>Banana</button>
+          <button className='ingredients-list__item btn'>Garlic</button>
+          <button className='ingredients-list__item btn'>Toast Bread</button>
         </div>
       </div>
     </section>
