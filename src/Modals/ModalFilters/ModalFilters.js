@@ -1,20 +1,30 @@
 import React, { useState } from 'react';
 import './ModalFilters.css';
 import '../Modals.css';
-import filters from '../../filters';
 
-const ModalFilters = ({ isOpen, closeModal }) => {
+const ModalFilters = ({
+  isOpen,
+  closeModal,
+  filters,
+  activeFilters,
+  toggleFilter,
+}) => {
   const [addIngredientsInput, setAddIngredientsInput] = useState('');
 
   return (
-    <section class={`modal${isOpen ? ' modal--open' : ''}`}>
+    <section className={`modal${isOpen ? ' modal--open' : ''}`}>
       <div className='modal-content modal__container'>
         <h2 className='modal-content__heading'>Add Filters</h2>
         <button className='modal-content__btn-exit btn' onClick={closeModal} />
         <ul>
           {filters.map((filter) => (
             <li className='modal-content__list-item'>
-              <button className='modal-content__btn modal-content__btn--type--checkbox btn'>
+              <button
+                className={`modal-content__btn modal-content__btn--type--checkbox ${
+                  activeFilters[filter] === true ? 'checked' : ''
+                } btn`}
+                onClick={() => toggleFilter(filter)}
+              >
                 {filter}
               </button>
             </li>

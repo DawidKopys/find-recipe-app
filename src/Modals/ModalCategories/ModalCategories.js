@@ -3,7 +3,12 @@ import './ModalCategories.css';
 import '../Modals.css';
 import categories from '../../categories';
 
-const ModalCategories = ({ isOpen, closeModal }) => {
+const ModalCategories = ({
+  isOpen,
+  closeModal,
+  activeCategory,
+  setActiveCategory,
+}) => {
   return (
     <section className={`modal${isOpen ? ' modal--open' : ''}`}>
       <div className='modal-content modal__container'>
@@ -12,7 +17,12 @@ const ModalCategories = ({ isOpen, closeModal }) => {
         <ul>
           {categories.map((category) => (
             <li className='modal-content__list-item'>
-              <button className='modal-content__btn modal-content__btn--type--radio btn'>
+              <button
+                className={`modal-content__btn modal-content__btn--type--radio ${
+                  activeCategory === category ? 'checked' : ''
+                } btn`}
+                onClick={() => setActiveCategory(category)}
+              >
                 {category}
               </button>
             </li>

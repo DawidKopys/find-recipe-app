@@ -7,7 +7,13 @@ import ResetFiltersButton from '../ResetFiltersButton/ResetFiltersButton';
 import ModalCategories from '../Modals/ModalCategories/ModalCategories';
 import ModalFilters from '../Modals/ModalFilters/ModalFilters';
 
-const Sidebar = () => {
+const Sidebar = ({
+  activeCategory,
+  setActiveCategory,
+  filters,
+  activeFilters,
+  toggleFilter,
+}) => {
   const [openedModal, setOpenedModal] = useState('none');
 
   const closeModal = () => {
@@ -20,10 +26,15 @@ const Sidebar = () => {
       <ModalCategories
         isOpen={openedModal === 'recipe-categories-modal'}
         closeModal={closeModal}
+        activeCategory={activeCategory}
+        setActiveCategory={setActiveCategory}
       />
       <ModalFilters
         isOpen={openedModal === 'add-filters-modal'}
         closeModal={closeModal}
+        activeFilters={activeFilters}
+        toggleFilter={toggleFilter}
+        filters={filters}
       />
       <section className='filters-bar sidebar__filters-bar'>
         <ChooseCategoryButton
