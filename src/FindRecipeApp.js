@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './FindRecipeApp.css';
 import recipes from './recipes';
 import filters from './filters';
@@ -6,6 +6,7 @@ import Sidebar from './Sidebar/Sidebar';
 import RecipesList from './RecipesList/RecipesList';
 
 const FindRecipeApp = () => {
+  const [filteredRecipes, setFilteredRecipes] = useState(recipes);
   const [activeCategory, setActiveCategory] = useState('all');
   const [activeFilters, setActiveFilters] = useState(
     filters.reduce((o, key) => ({ ...o, [key]: false }), {})
@@ -19,6 +20,16 @@ const FindRecipeApp = () => {
     }
   };
 
+  useEffect(() => {
+    if (activeCategory === 'all') {
+      setFilteredRecipes(recipes);
+    } else {
+      setFilteredRecipes(
+        recipes.filter((recipe) => recipe.category === activeCategory)
+      );
+    }
+  }, [activeCategory]);
+
   return (
     <div className='recipe-finder-app'>
       <Sidebar
@@ -28,7 +39,7 @@ const FindRecipeApp = () => {
         activeFilters={activeFilters}
         toggleFilter={toggleFilter}
       />
-      <RecipesList recipes={recipes} />
+      <RecipesList recipes={filteredRecipes} />
     </div>
   );
 };
