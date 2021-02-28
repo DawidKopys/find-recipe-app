@@ -19,7 +19,9 @@ const ModalCategories = ({
             <li className='modal-content__list-item'>
               <button
                 className={`modal-content__btn modal-content__btn--type--radio ${
-                  activeCategory === category ? 'checked' : ''
+                  activeCategory === category
+                    ? 'modal-content__btn--checked'
+                    : ''
                 } btn`}
                 onClick={() => setActiveCategory(category)}
               >

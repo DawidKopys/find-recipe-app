@@ -21,7 +21,9 @@ const ModalFilters = ({
             <li className='modal-content__list-item'>
               <button
                 className={`modal-content__btn modal-content__btn--type--checkbox ${
-                  activeFilters[filter] === true ? 'checked' : ''
+                  activeFilters[filter] === true
+                    ? 'modal-content__btn--checked'
+                    : ''
                 } btn`}
                 onClick={() => toggleFilter(filter)}
               >

@@ -1,4 +1,4 @@
-.modal-content__btn--type--radio.checked {
+.modal-content__btn--type--radio.modal-content__btn--checked {
   background-image: url('../../assets/icon-checkbox-black-checked.svg');
   color: #7b61ff;
   background-color: #e5e5e5;
