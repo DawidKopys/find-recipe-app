@@ -1,26 +1,22 @@
 /* Recipe card layout */
+.recipes-list__recipe-card {
+  padding: 10px;
+  padding-bottom: 30px;
+}
+
 .recipe-card {
   height: 150px;
   display: grid;
   grid-template-columns: 105px 1fr;
   gap: 20px;
-  padding: 10px;
-  padding-bottom: 30px;
 }
 
-.recipe-card img {
+.recipe-card__img {
   align-self: center;
   max-height: 100%;
 }
 
-.recipe-info-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.recipe-macro-container {
+.recipe-info {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -28,6 +24,13 @@
 }
 
 .recipe-macro {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.recipe-macro__macro-details {
   display: flex;
   justify-content: space-between;
   padding-right: 20px;
@@ -40,22 +43,23 @@
   font-style: normal;
 }
 
-.recipe-info-container > h3 {
+.recipe-info__recipe-name {
   font-size: 1.1rem;
   font-weight: 700;
 }
 
-.recipe-info-container p.recipe-macro-per-serving {
+.recipe-macro__title {
   font-size: 0.8rem;
   font-weight: 100;
   color: #828282;
 }
 
-.recipe-info-container .recipe-macro-detail > h4 {
+.macro-details__macro-name {
   text-align: center;
   font-weight: 400;
 }
-.recipe-info-container .recipe-macro-detail > p {
+
+.macro-details__macro-value {
   text-align: center;
   font-weight: 100;
   font-size: 0.8rem;
@@ -63,37 +67,39 @@
 }
 
 @media screen and (min-width: 800px) {
+  .recipes-list__recipe-card {
+    margin: 10px 15px;
+    padding: 30px 20px;
+  }
+
   .recipe-card {
     height: 350px;
     display: flex;
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    padding: 30px 20px;
-    margin: 10px 15px;
     border-radius: 20px;
   }
 
-  .recipe-card > img {
-    flex: 0 auto;
+  .recipe-info {
+    align-items: center;
   }
 
-  .recipe-info-container {
+  .recipe-card__recipe-info {
     flex: 1 auto;
-    align-items: center;
     padding-bottom: 10%;
   }
 
-  .recipe-macro-container {
+  .recipe-macro {
     display: none;
   }
 
-  .recipe-macro {
+  .recipe-macro__macro-details {
     padding-right: 0px;
     min-width: 200px;
   }
 
-  .recipe-card:hover .recipe-macro-container {
+  .recipe-card:hover .recipe-macro {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -110,12 +116,12 @@
     height: 120px;
   }
 
-  .recipe-card:hover .recipe-info-container > h3 {
+  .recipe-card:hover .recipe-info__recipe-name {
     font-size: 1.3rem;
   }
 
   /* Typography */
-  .recipe-info-container > h3 {
+  .recipe-info__recipe-name {
     font-weight: 400;
     text-align: center;
   }

@@ -4,7 +4,7 @@ import RecipeCard from './RecipeCard/RecipeCard';
 
 const RecipesList = ({ recipes }) => {
   return (
-    <section className='recipes-container'>
+    <section className='recipes-list recipe-finder-app__recipes-list'>
       {recipes.map((recipe) => (
         <RecipeCard key={recipe.id} recipeDetails={recipe} />
       ))}
