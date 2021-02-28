@@ -30,20 +30,20 @@ const FindRecipeApp = () => {
                   <p className='recipe-macro-per-serving'>Macro per serving:</p>
                   <div className='recipe-macro'>
                     <div className='recipe-macro-detail'>
-                      <p>{calories}</p>
-                      <h4>kcal</h4>
+                      <h4>{calories}</h4>
+                      <p>kcal</p>
                     </div>
                     <div className='recipe-macro-detail'>
-                      <p>{protein}</p>
-                      <h4>protein</h4>
+                      <h4>{protein}</h4>
+                      <p>protein</p>
                     </div>
                     <div className='recipe-macro-detail'>
-                      <p>{carbs}</p>
-                      <h4>carbs</h4>
+                      <h4>{carbs}</h4>
+                      <p>carbs</p>
                     </div>
                     <div className='recipe-macro-detail'>
-                      <p>{fats}</p>
-                      <h4>fats</h4>
+                      <h4>{fats}</h4>
+                      <p>fats</p>
                     </div>
                   </div>
                 </div>

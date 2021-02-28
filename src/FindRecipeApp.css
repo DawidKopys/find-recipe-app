@@ -52,14 +52,15 @@
   color: #828282;
 }
 
+.recipe-info-container .recipe-macro-detail > h4 {
+  text-align: center;
+  font-weight: 400;
+}
 .recipe-info-container .recipe-macro-detail > p {
   text-align: center;
-}
-.recipe-info-container .recipe-macro-detail > h4 {
-  font-size: 0.8rem;
   font-weight: 100;
+  font-size: 0.8rem;
   color: #828282;
-  text-align: center;
 }
 
 @media screen and (min-width: 800px) {
