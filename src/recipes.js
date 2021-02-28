@@ -8,6 +8,7 @@ const recipes = [
     macro: { calories: 600, protein: 20, carbs: 30, fats: 15 },
     imageMobile: PorrigeImageSmall,
     imageDesktop: PorrigeImageBig,
+    category: 'breakfast',
   },
   {
     id: 2,
@@ -15,6 +16,7 @@ const recipes = [
     macro: { calories: 600, protein: 20, carbs: 30, fats: 15 },
     imageMobile: PorrigeImageSmall,
     imageDesktop: PorrigeImageBig,
+    category: 'breakfast',
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ const recipes = [
     macro: { calories: 600, protein: 20, carbs: 30, fats: 15 },
     imageMobile: PorrigeImageSmall,
     imageDesktop: PorrigeImageBig,
+    category: 'breakfast',
   },
   {
     id: 4,
@@ -29,6 +32,7 @@ const recipes = [
     macro: { calories: 600, protein: 20, carbs: 30, fats: 15 },
     imageMobile: PorrigeImageSmall,
     imageDesktop: PorrigeImageBig,
+    category: 'breakfast',
   },
   {
     id: 5,
@@ -36,6 +40,7 @@ const recipes = [
     macro: { calories: 600, protein: 20, carbs: 30, fats: 15 },
     imageMobile: PorrigeImageSmall,
     imageDesktop: PorrigeImageBig,
+    category: 'breakfast',
   },
   {
     id: 6,
@@ -43,6 +48,7 @@ const recipes = [
     macro: { calories: 600, protein: 20, carbs: 30, fats: 15 },
     imageMobile: PorrigeImageSmall,
     imageDesktop: PorrigeImageBig,
+    category: 'breakfast',
   },
   {
     id: 7,
@@ -50,6 +56,7 @@ const recipes = [
     macro: { calories: 600, protein: 20, carbs: 30, fats: 15 },
     imageMobile: PorrigeImageSmall,
     imageDesktop: PorrigeImageBig,
+    category: 'breakfast',
   },
   {
     id: 8,
@@ -57,6 +64,7 @@ const recipes = [
     macro: { calories: 600, protein: 20, carbs: 30, fats: 15 },
     imageMobile: PorrigeImageSmall,
     imageDesktop: PorrigeImageBig,
+    category: 'breakfast',
   },
 ];
 

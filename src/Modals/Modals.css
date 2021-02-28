@@ -116,6 +116,10 @@
   font-weight: 700;
 }
 
+.btn-modal {
+  text-transform: capitalize;
+}
+
 @media screen and (min-width: 800px) {
   .modal {
     display: block;

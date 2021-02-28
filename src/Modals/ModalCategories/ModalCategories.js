@@ -1,6 +1,7 @@
 import React from 'react';
 import './ModalCategories.css';
 import '../Modals.css';
+import categories from '../../categories';
 
 const ModalCategories = ({ isOpen, closeModal }) => {
   return (
@@ -11,26 +12,17 @@ const ModalCategories = ({ isOpen, closeModal }) => {
         <h2>Recipe Categories</h2>
         <button className='btn btn-modal-exit' onClick={closeModal} />
         <ul>
-          <li>
-            <button className='btn-modal btn-radio checked'>All</button>
-          </li>
-          <li>
-            <button className='btn-modal btn-radio'>Main Courses</button>
-          </li>
-          <li>
-            <button className='btn-modal btn-radio'>
-              Breakfasts and suppers
-            </button>
-          </li>
-          <li>
-            <button className='btn-modal btn-radio'>Smoothies</button>
-          </li>
-          <li>
-            <button className='btn-modal btn-radio'>Snacks</button>
-          </li>
-          <li>
-            <button className='btn-modal btn-radio'>Salads</button>
-          </li>
+          {categories.map((category) => (
+            <li>
+              <button
+                className={`btn btn-modal btn-radio ${
+                  category === 'all' ? 'checked' : ''
+                }`}
+              >
+                {category}
+              </button>
+            </li>
+          ))}
         </ul>
       </div>
     </section>
