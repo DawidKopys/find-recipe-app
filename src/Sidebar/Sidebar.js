@@ -4,118 +4,27 @@ import SearchBar from '../SearchBar/SearchBar';
 import ChooseCategoryButton from '../ChooseCategoryButton/ChooseCategoryButton';
 import AddFiltersButton from '../AddFiltersButton/AddFiltersButton';
 import ResetFiltersButton from '../ResetFiltersButton/ResetFiltersButton';
+import ModalCategories from '../Modals/ModalCategories/ModalCategories';
+import ModalFilters from '../Modals/ModalFilters/ModalFilters';
 
 const Sidebar = () => {
-  const [addIngredientsInput, setAddIngredientsInput] = useState('');
   const [openedModal, setOpenedModal] = useState('none');
+
+  const closeModal = () => {
+    setOpenedModal('none');
+  };
 
   return (
     <section className='sidebar'>
       <SearchBar />
-      <section
-        className={`modal recipe-categories-modal ${
-          openedModal === 'recipe-categories-modal' ? 'modal-open' : ''
-        }`}
-      >
-        <div className='modal-content-container'>
-          <h2>Recipe Categories</h2>
-          <button
-            className='btn btn-modal-exit'
-            onClick={() => {
-              setOpenedModal('none');
-            }}
-          />
-          <ul>
-            <li>
-              <button className='btn-modal btn-radio checked'>All</button>
-            </li>
-            <li>
-              <button className='btn-modal btn-radio'>Main Courses</button>
-            </li>
-            <li>
-              <button className='btn-modal btn-radio'>
-                Breakfasts and suppers
-              </button>
-            </li>
-            <li>
-              <button className='btn-modal btn-radio'>Smoothies</button>
-            </li>
-            <li>
-              <button className='btn-modal btn-radio'>Snacks</button>
-            </li>
-            <li>
-              <button className='btn-modal btn-radio'>Salads</button>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section
-        className={`modal add-filters-modal ${
-          openedModal === 'add-filters-modal' ? 'modal-open' : ''
-        }`}
-      >
-        <div className='modal-content-container'>
-          <h2>Add Filters</h2>
-          <button
-            className='btn btn-modal-exit'
-            onClick={() => {
-              setOpenedModal('none');
-            }}
-          />
-          <ul>
-            <li>
-              <button className='btn btn-modal btn-checkbox checked'>
-                Vegetarian
-              </button>
-            </li>
-            <li>
-              <button className='btn btn-modal btn-checkbox'>Vegan</button>
-            </li>
-            <li>
-              <button className='btn btn-modal btn-checkbox checked'>
-                Keto
-              </button>
-            </li>
-            <li>
-              <button className='btn btn-modal btn-checkbox'>
-                Gluten Free
-              </button>
-            </li>
-            <li>
-              <button className='btn btn-modal btn-checkbox'>Diary Free</button>
-            </li>
-            <li>
-              <button className='btn btn-modal btn-checkbox'>
-                High Protein
-              </button>
-            </li>
-          </ul>
-          <h2>Filter by ingredients</h2>
-          <div className='ingredients-search-input-container'>
-            <label htmlFor='ingredients-search-input' className='sr-only'>
-              Find Recipe
-            </label>
-            <input
-              type='text'
-              id='ingredients-search-input'
-              name='ingredients-search-input'
-              placeholder='Add ingredients'
-              value={addIngredientsInput}
-              onChange={(e) => {
-                setAddIngredientsInput(e.target.value);
-              }}
-            />
-          </div>
-          <div className='ingredients-container'>
-            <button className='btn btn-ingredient'>Eggs</button>
-            <button className='btn btn-ingredient'>Spinach</button>
-            <button className='btn btn-ingredient'>Avocado</button>
-            <button className='btn btn-ingredient'>Banana</button>
-            <button className='btn btn-ingredient'>Garlic</button>
-            <button className='btn btn-ingredient'>Toast Bread</button>
-          </div>
-        </div>
-      </section>
+      <ModalCategories
+        isOpen={openedModal === 'recipe-categories-modal'}
+        closeModal={closeModal}
+      />
+      <ModalFilters
+        isOpen={openedModal === 'add-filters-modal'}
+        closeModal={closeModal}
+      />
       <section className='filters-bar'>
         <ChooseCategoryButton
           onClick={() => {

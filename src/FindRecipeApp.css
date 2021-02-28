@@ -1,5 +1,5 @@
 @media screen and (min-width: 800px) {
-  /* app layout */
+  /* main app layout */
   .recipe-finder-app {
     display: grid;
     grid-template-columns: 320px 1fr;
