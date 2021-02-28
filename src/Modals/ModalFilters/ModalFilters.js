@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './ModalFilters.css';
 import '../Modals.css';
+import filters from '../../filters';
 
 const ModalFilters = ({ isOpen, closeModal }) => {
   const [addIngredientsInput, setAddIngredientsInput] = useState('');
@@ -13,26 +14,11 @@ const ModalFilters = ({ isOpen, closeModal }) => {
         <h2>Add Filters</h2>
         <button className='btn btn-modal-exit' onClick={closeModal} />
         <ul>
-          <li>
-            <button className='btn btn-modal btn-checkbox checked'>
-              Vegetarian
-            </button>
-          </li>
-          <li>
-            <button className='btn btn-modal btn-checkbox'>Vegan</button>
-          </li>
-          <li>
-            <button className='btn btn-modal btn-checkbox checked'>Keto</button>
-          </li>
-          <li>
-            <button className='btn btn-modal btn-checkbox'>Gluten Free</button>
-          </li>
-          <li>
-            <button className='btn btn-modal btn-checkbox'>Diary Free</button>
-          </li>
-          <li>
-            <button className='btn btn-modal btn-checkbox'>High Protein</button>
-          </li>
+          {filters.map((filter) => (
+            <li>
+              <button className='btn btn-modal btn-checkbox'>{filter}</button>
+            </li>
+          ))}
         </ul>
         <h2>Filter by ingredients</h2>
         <div className='ingredients-search-input-container'>
