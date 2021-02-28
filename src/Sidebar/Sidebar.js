@@ -5,7 +5,7 @@ import ChooseCategoryButton from '../ChooseCategoryButton/ChooseCategoryButton';
 import AddFiltersButton from '../AddFiltersButton/AddFiltersButton';
 import ResetFiltersButton from '../ResetFiltersButton/ResetFiltersButton';
 
-const sidebar = () => {
+const Sidebar = () => {
   const [addIngredientsInput, setAddIngredientsInput] = useState('');
   const [openedModal, setOpenedModal] = useState('none');
 
@@ -133,4 +133,4 @@ const sidebar = () => {
   );
 };
 
-export default sidebar;
+export default Sidebar;
