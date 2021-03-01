@@ -84,7 +84,7 @@
   }
 
   .recipe-card__img {
-    height: unset;
+    height: 150px;
   }
 
   .recipe-info {

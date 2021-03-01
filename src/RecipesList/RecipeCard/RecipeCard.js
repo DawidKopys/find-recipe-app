@@ -6,19 +6,12 @@ const RecipeCard = ({
     id,
     name,
     macro: { calories, protein, carbs, fats },
-    imageMobile,
-    imageDesktop,
+    image,
   },
 }) => {
   return (
     <div className='recipe-card recipes-list__recipe-card' key={id}>
-      <img
-        className='recipe-card__img'
-        srcSet={`${imageMobile} 105w, ${imageDesktop} 640w`}
-        sizes='(max-width: 800px) 105px, 150px'
-        src={imageMobile}
-        alt={name}
-      />
+      <img className='recipe-card__img' src={image} alt={name} />
       <div className='recipe-info recipe-card__recipe-info'>
         <h3 className='recipe-info__recipe-name'>{name}</h3>
         <div className='recipe-macro'>
