@@ -13,6 +13,7 @@ const Sidebar = ({
   filters,
   activeFilters,
   toggleFilter,
+  setNameFilter,
 }) => {
   const [openedModal, setOpenedModal] = useState('none');
 
@@ -22,7 +23,7 @@ const Sidebar = ({
 
   return (
     <section className='sidebar recipe-finder-app__sidebar'>
-      <SearchBar />
+      <SearchBar setNameFilter={setNameFilter} />
       <ModalCategories
         isOpen={openedModal === 'recipe-categories-modal'}
         closeModal={closeModal}

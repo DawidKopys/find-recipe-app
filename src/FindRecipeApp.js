@@ -20,6 +20,7 @@ function isRecipeApplicable(recipeTags, filters) {
 const FindRecipeApp = () => {
   const [filteredRecipes, setFilteredRecipes] = useState(recipes);
   const [activeCategory, setActiveCategory] = useState('all');
+  const [nameFilter, setNameFilter] = useState('');
   const [activeFilters, setActiveFilters] = useState(
     filters.reduce((o, key) => ({ ...o, [key]: false }), {})
   );
@@ -35,8 +36,10 @@ const FindRecipeApp = () => {
   useEffect(() => {
     if (activeCategory === 'all') {
       setFilteredRecipes(
-        recipes.filter((recipe) =>
-          isRecipeApplicable(recipe.tags, activeFilters)
+        recipes.filter(
+          (recipe) =>
+            isRecipeApplicable(recipe.tags, activeFilters) &&
+            recipe.name.toLocaleLowerCase().includes(nameFilter)
         )
       );
     } else {
@@ -44,11 +47,12 @@ const FindRecipeApp = () => {
         recipes.filter(
           (recipe) =>
             recipe.category === activeCategory &&
+            recipe.name.toLocaleLowerCase().includes(nameFilter) &&
             isRecipeApplicable(recipe.tags, activeFilters)
         )
       );
     }
-  }, [activeCategory, activeFilters]);
+  }, [activeCategory, activeFilters, nameFilter]);
 
   return (
     <div className='recipe-finder-app'>
@@ -58,6 +62,7 @@ const FindRecipeApp = () => {
         filters={filters}
         activeFilters={activeFilters}
         toggleFilter={toggleFilter}
+        setNameFilter={setNameFilter}
       />
       <RecipesList recipes={filteredRecipes} />
     </div>

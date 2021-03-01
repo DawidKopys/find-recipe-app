@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './SearchBar.css';
 
-const SearchBar = () => {
+const SearchBar = ({ setNameFilter }) => {
   const [userInput, setUserInput] = useState('');
+
+  useEffect(() => {
+    const debounceTimerId = setTimeout(() => {
+      setNameFilter(userInput.toLocaleLowerCase());
+    }, 500);
+    return () => {
+      clearTimeout(debounceTimerId);
+    };
+  }, [userInput]);
 
   return (
     <section className='search-bar sidebar__search-bar'>
