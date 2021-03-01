@@ -13,7 +13,9 @@
 
 .recipe-card__img {
   align-self: center;
+  justify-self: center;
   max-height: 100%;
+  height: 105px;
 }
 
 .recipe-info {
@@ -79,6 +81,10 @@
     justify-items: center;
     align-items: center;
     border-radius: 20px;
+  }
+
+  .recipe-card__img {
+    height: unset;
   }
 
   .recipe-info {
