@@ -5,6 +5,7 @@ const filters = [
   'gluten free',
   'diary free',
   'high protein',
+  'low fat',
 ];
 
 export default filters;
