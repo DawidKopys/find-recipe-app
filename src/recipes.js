@@ -9,6 +9,7 @@ const recipes = [
     imageMobile: PorrigeImageSmall,
     imageDesktop: PorrigeImageBig,
     category: 'breakfasts and suppers',
+    tags: ['vegetarian', 'keto'],
   },
   {
     id: 2,
@@ -17,6 +18,7 @@ const recipes = [
     imageMobile: PorrigeImageSmall,
     imageDesktop: PorrigeImageBig,
     category: 'breakfasts and suppers',
+    tags: ['vegetarian', 'keto', 'vegan'],
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const recipes = [
     imageMobile: PorrigeImageSmall,
     imageDesktop: PorrigeImageBig,
     category: 'breakfasts and suppers',
+    tags: ['vegetarian', 'keto'],
   },
   {
     id: 4,
@@ -33,6 +36,7 @@ const recipes = [
     imageMobile: PorrigeImageSmall,
     imageDesktop: PorrigeImageBig,
     category: 'breakfasts and suppers',
+    tags: ['vegetarian', 'high protein'],
   },
   {
     id: 5,
@@ -41,6 +45,7 @@ const recipes = [
     imageMobile: PorrigeImageSmall,
     imageDesktop: PorrigeImageBig,
     category: 'breakfasts and suppers',
+    tags: ['vegetarian', 'keto', 'high protein'],
   },
   {
     id: 6,
@@ -49,6 +54,7 @@ const recipes = [
     imageMobile: PorrigeImageSmall,
     imageDesktop: PorrigeImageBig,
     category: 'snacks',
+    tags: ['vegetarian', 'keto', 'diary free'],
   },
   {
     id: 7,
@@ -57,6 +63,7 @@ const recipes = [
     imageMobile: PorrigeImageSmall,
     imageDesktop: PorrigeImageBig,
     category: 'salads',
+    tags: ['vegetarian'],
   },
   {
     id: 8,
@@ -65,6 +72,7 @@ const recipes = [
     imageMobile: PorrigeImageSmall,
     imageDesktop: PorrigeImageBig,
     category: 'salads',
+    tags: ['vegetarian', 'vegan'],
   },
 ];
 

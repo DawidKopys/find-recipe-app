@@ -5,6 +5,18 @@ import filters from './filters';
 import Sidebar from './Sidebar/Sidebar';
 import RecipesList from './RecipesList/RecipesList';
 
+function isRecipeApplicable(recipeTags, filters) {
+  /* Check if recipe tags contains all set filters */
+  for (const filter in filters) {
+    if (filters[filter] === true) {
+      if (!recipeTags.includes(filter)) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
 const FindRecipeApp = () => {
   const [filteredRecipes, setFilteredRecipes] = useState(recipes);
   const [activeCategory, setActiveCategory] = useState('all');
@@ -22,13 +34,21 @@ const FindRecipeApp = () => {
 
   useEffect(() => {
     if (activeCategory === 'all') {
-      setFilteredRecipes(recipes);
+      setFilteredRecipes(
+        recipes.filter((recipe) =>
+          isRecipeApplicable(recipe.tags, activeFilters)
+        )
+      );
     } else {
       setFilteredRecipes(
-        recipes.filter((recipe) => recipe.category === activeCategory)
+        recipes.filter(
+          (recipe) =>
+            recipe.category === activeCategory &&
+            isRecipeApplicable(recipe.tags, activeFilters)
+        )
       );
     }
-  }, [activeCategory]);
+  }, [activeCategory, activeFilters]);
 
   return (
     <div className='recipe-finder-app'>
