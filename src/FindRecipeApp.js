@@ -22,7 +22,7 @@ const FindRecipeApp = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [nameFilter, setNameFilter] = useState('');
   const [activeFilters, setActiveFilters] = useState(
-    filters.reduce((o, key) => ({ ...o, [key]: false }), {})
+    filters.reduce((o, filter) => ({ ...o, [filter.filterName]: false }), {})
   );
 
   const toggleFilter = (filter) => {

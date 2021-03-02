@@ -18,16 +18,16 @@ const ModalFilters = ({
         <button className='modal-content__btn-exit btn' onClick={closeModal} />
         <ul>
           {filters.map((filter) => (
-            <li className='modal-content__list-item'>
+            <li className='modal-content__list-item' key={filter.id}>
               <button
                 className={`modal-content__btn modal-content__btn--type--checkbox ${
-                  activeFilters[filter] === true
+                  activeFilters[filter.filterName] === true
                     ? 'modal-content__btn--checked'
                     : ''
                 } btn`}
-                onClick={() => toggleFilter(filter)}
+                onClick={() => toggleFilter(filter.filterName)}
               >
-                {filter}
+                {filter.filterName}
               </button>
             </li>
           ))}

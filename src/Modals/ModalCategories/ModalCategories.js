@@ -16,16 +16,16 @@ const ModalCategories = ({
         <button className='modal-content__btn-exit btn' onClick={closeModal} />
         <ul>
           {categories.map((category) => (
-            <li className='modal-content__list-item'>
+            <li className='modal-content__list-item' key={category.id}>
               <button
                 className={`modal-content__btn modal-content__btn--type--radio ${
-                  activeCategory === category
+                  activeCategory === category.categoryName
                     ? 'modal-content__btn--checked'
                     : ''
                 } btn`}
-                onClick={() => setActiveCategory(category)}
+                onClick={() => setActiveCategory(category.categoryName)}
               >
-                {category}
+                {category.categoryName}
               </button>
             </li>
           ))}
