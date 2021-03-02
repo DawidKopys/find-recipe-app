@@ -27,6 +27,11 @@ button {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+  outline: none;
+}
+
 /* Screen Readers specific */
 .sr-only {
   width: 1px;
@@ -56,6 +61,27 @@ button {
 @font-face {
   font-family: 'Poppins';
   src: url('/src/assets/fonts/Poppins-Bold.otf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/src/assets/fonts/Roboto-Light.ttf');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/src/assets/fonts/Roboto-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/src/assets/fonts/Roboto-Bold.ttf');
   font-weight: 700;
   font-style: normal;
 }

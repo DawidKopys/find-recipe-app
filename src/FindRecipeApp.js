@@ -39,7 +39,7 @@ const FindRecipeApp = () => {
         recipes.filter(
           (recipe) =>
             isRecipeApplicable(recipe.tags, activeFilters) &&
-            recipe.name.toLocaleLowerCase().includes(nameFilter)
+            recipe.name.toLowerCase().includes(nameFilter)
         )
       );
     } else {
@@ -47,7 +47,7 @@ const FindRecipeApp = () => {
         recipes.filter(
           (recipe) =>
             recipe.category === activeCategory &&
-            recipe.name.toLocaleLowerCase().includes(nameFilter) &&
+            recipe.name.toLowerCase().includes(nameFilter) &&
             isRecipeApplicable(recipe.tags, activeFilters)
         )
       );

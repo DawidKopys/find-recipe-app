@@ -1,11 +1,7 @@
 @media screen and (min-width: 800px) {
-  .recipe-finder-app__recipes-list {
-    margin-top: 25px;
-  }
-
   .recipes-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-template-rows: repeat(4, 360px);
+    grid-template-rows: repeat(3, 360px);
   }
 }
