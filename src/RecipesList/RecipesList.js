@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './RecipesList.css';
 import RecipeCard from './RecipeCard/RecipeCard';
 import Pagination from './Pagination/Pagination';
@@ -6,6 +6,10 @@ import Pagination from './Pagination/Pagination';
 const RecipesList = ({ recipes }) => {
   const itemsPerPage = 9;
   const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [recipes]);
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstPost = indexOfLastItem - itemsPerPage;
