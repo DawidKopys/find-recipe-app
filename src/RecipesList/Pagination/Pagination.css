@@ -58,42 +58,32 @@
 /* Next and Previous buttons icons */
 .pagination__link--next {
   padding-right: 20px;
-  margin-right: -20px;
-}
-.pagination__link--previous {
-  padding-left: 20px;
-  margin-left: -20px;
-}
-
-.pagination__list-item--next::after,
-.pagination__list-item--previous::before {
-  content: '';
-  display: block;
-  height: 100%;
-  width: 10px;
+  background-image: url('../../assets/icon-arrow-thin-big-w15-right-black.svg');
   background-repeat: no-repeat;
+  background-position: top 55% right 0;
 }
 
-.pagination__list-item--next::after {
-  padding-left: 15px;
-  background-position: top 55% right 50%;
-}
-.pagination__list-item--active.pagination__list-item--next::after {
-  background-image: url('../../assets/icon-arrow-thin-big-w15-right.svg');
-}
-.pagination__list-item--disabled.pagination__list-item--next::after {
+.pagination__link--disabled.pagination__link--next {
   background-image: url('../../assets/icon-arrow-thin-big-w15-right-grey.svg');
 }
 
-.pagination__list-item--previous::before {
-  padding-right: 15px;
-  background-position: top 55% left 50%;
+.pagination__link--previous {
+  padding-left: 20px;
+  background-image: url('../../assets/icon-arrow-thin-big-w15-left-black.svg');
+  background-repeat: no-repeat;
+  background-position: top 55% left 0;
 }
-.pagination__list-item--active.pagination__list-item--previous::before {
-  background-image: url('../../assets/icon-arrow-thin-big-w15-left.svg');
-}
-.pagination__list-item--disabled.pagination__list-item--previous::before {
+
+.pagination__link--disabled.pagination__link--previous {
   background-image: url('../../assets/icon-arrow-thin-big-w15-left-grey.svg');
+}
+
+/* On hover colors change */
+.pagination__list-item--active:hover .pagination__link--previous {
+  background-image: url('../../assets/icon-arrow-thin-big-w15-left-purple.svg');
+}
+.pagination__list-item--active:hover .pagination__link--next {
+  background-image: url('../../assets/icon-arrow-thin-big-w15-right-purple.svg');
 }
 
 @media screen and (min-width: 800px) {

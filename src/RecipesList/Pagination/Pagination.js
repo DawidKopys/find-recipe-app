@@ -16,7 +16,7 @@ const Pagination = ({ itemsPerPage, totalItems, currentPage, paginate }) => {
             currentPage === 1
               ? ' pagination__list-item--disabled'
               : ' pagination__list-item--active'
-          } pagination__list-item--previous`}
+          }`}
         >
           <a
             onClick={() => paginate(currentPage - 1)}
@@ -51,7 +51,7 @@ const Pagination = ({ itemsPerPage, totalItems, currentPage, paginate }) => {
             currentPage === lastPageNumber
               ? ' pagination__list-item--disabled'
               : ' pagination__list-item--active'
-          } pagination__list-item--next`}
+          }`}
         >
           <a
             onClick={() => paginate(currentPage + 1)}
