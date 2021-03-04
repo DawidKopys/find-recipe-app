@@ -4,6 +4,7 @@ import recipes from './recipes';
 import filters from './filters';
 import Sidebar from './Sidebar/Sidebar';
 import RecipesList from './RecipesList/RecipesList';
+import EmptyResultsAlert from './EmptyResultsAlert/EmptyResultsAlert';
 
 function isRecipeApplicable(recipeTags, filters) {
   /* Check if recipe tags contains all set filters */
@@ -64,7 +65,11 @@ const FindRecipeApp = () => {
         toggleFilter={toggleFilter}
         setNameFilter={setNameFilter}
       />
-      <RecipesList recipes={filteredRecipes} />
+      {filteredRecipes.length === 0 ? (
+        <EmptyResultsAlert />
+      ) : (
+        <RecipesList recipes={filteredRecipes} />
+      )}
     </div>
   );
 };
