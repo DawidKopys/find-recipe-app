@@ -16,7 +16,7 @@
 .pagination__list-item {
   margin: 0 3px;
   height: 35px;
-  min-width: 30px;
+  min-width: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,6 +35,8 @@
 /* Current Page */
 .pagination__list-item--current {
   cursor: default;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .pagination__link--current {
