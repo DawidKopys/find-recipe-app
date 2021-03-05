@@ -7,11 +7,17 @@ export function useWindowResize() {
   });
 
   useEffect(() => {
+    let debounceTimerId = null;
+
     function handleResize() {
-      setWindowSize({
-        windowWidth: window.innerWidth,
-        windowHeight: window.innerHeight,
-      });
+      clearTimeout(debounceTimerId);
+
+      debounceTimerId = setTimeout(() => {
+        setWindowSize({
+          windowWidth: window.innerWidth,
+          windowHeight: window.innerHeight,
+        });
+      }, 150);
     }
 
     window.addEventListener('resize', handleResize);
