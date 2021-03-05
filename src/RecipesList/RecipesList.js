@@ -1,21 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './RecipesList.css';
 import RecipeCard from './RecipeCard/RecipeCard';
 import Pagination from './Pagination/Pagination';
+import { usePagination } from './Pagination/usePagination';
 
 const RecipesList = ({ recipes }) => {
   const itemsPerPage = 9;
-  const [currentPage, setCurrentPage] = useState(1);
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [recipes]);
-
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstPost = indexOfLastItem - itemsPerPage;
-  const currentRecipes = recipes.slice(indexOfFirstPost, indexOfLastItem);
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const [currentPage, currentRecipes, paginate] = usePagination(
+    recipes,
+    itemsPerPage
+  );
 
   return (
     <main className='recipes-container recipe-finder-app__recipes-container'>
