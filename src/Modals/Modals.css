@@ -46,7 +46,7 @@
   height: 25px;
   top: -5px;
   right: 15px;
-  background-image: url('../assets/icon-cross-grey.svg');
+  background-image: url('Assets/icon-cross-grey.svg');
 }
 
 /* List elements */
@@ -60,7 +60,7 @@
   width: 100%;
   height: 100%;
   text-align: left;
-  background-image: url('../assets/icon-checkbox-grey-unchecked.svg');
+  background-image: url('Assets/icon-checkbox-grey-unchecked.svg');
   background-repeat: no-repeat;
   background-position: right 30px top 50%;
 }
@@ -82,7 +82,7 @@
   padding-left: 20px;
   border: 1px solid #828282;
   border-radius: 22px;
-  background-image: url('../assets/icon-add-ingredients.svg');
+  background-image: url('Assets/icon-add-ingredients.svg');
   background-repeat: no-repeat;
   background-position: right 15px top 50%;
 }
@@ -108,7 +108,7 @@
   line-height: 2;
   color: white;
   background-color: #7b61ff;
-  background-image: url('../assets/icon-cross-ingredients.svg');
+  background-image: url('Assets/icon-cross-ingredients.svg');
   background-repeat: no-repeat;
   background-position: right 10px top 50%;
   border-radius: 15px;

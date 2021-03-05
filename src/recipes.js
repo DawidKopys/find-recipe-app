@@ -1,15 +1,15 @@
-import PorrigeImageBig from './assets/recipe-image-peanut-butter-porrige-640w.png';
-import GrilledChickenWithSalsa from './assets/recipe-image-grilled-chicken-with-salsa-615w.png';
-import MexicanCrepes from './assets/recipe-image-mexican-crepes-640w.png';
-import FriedRiceWithChickenAndBroccoli from './assets/recipe-image-fried-rice-w-chicken-and-broccoli-640w.png';
-import QuinoaWithBeans from './assets/recipe-image-quinoa-with-beans-640w.png';
-import AppleCrumpets from './assets/recipe-image-apple-crumpets-640w.png';
-import CocoaOmlette from './assets/recipe-image-cocoa-omlette-640w.png';
-import ScrambledEggsAndAvocadoSandwich from './assets/recipe-image-scrambled-eggs-and-avocado-sandwich-640w.png';
-import OmletteSandwich from './assets/recipe-image-omlette-sandwich-640w.png';
-import FriedEggsSandwich from './assets/recipe-image-fried-egg-sandwich-640w.png';
-import RaspberrySmoothie from './assets/recipe-image-raspberry-smoothie-640w.png';
-import CarrotSmoothie from './assets/recipe-image-carrot-smoothie-640w.png';
+import PorrigeImageBig from 'Assets/recipe-image-peanut-butter-porrige-640w.png';
+import GrilledChickenWithSalsa from 'Assets/recipe-image-grilled-chicken-with-salsa-615w.png';
+import MexicanCrepes from 'Assets/recipe-image-mexican-crepes-640w.png';
+import FriedRiceWithChickenAndBroccoli from 'Assets/recipe-image-fried-rice-w-chicken-and-broccoli-640w.png';
+import QuinoaWithBeans from 'Assets/recipe-image-quinoa-with-beans-640w.png';
+import AppleCrumpets from 'Assets/recipe-image-apple-crumpets-640w.png';
+import CocoaOmlette from 'Assets/recipe-image-cocoa-omlette-640w.png';
+import ScrambledEggsAndAvocadoSandwich from 'Assets/recipe-image-scrambled-eggs-and-avocado-sandwich-640w.png';
+import OmletteSandwich from 'Assets/recipe-image-omlette-sandwich-640w.png';
+import FriedEggsSandwich from 'Assets/recipe-image-fried-egg-sandwich-640w.png';
+import RaspberrySmoothie from 'Assets/recipe-image-raspberry-smoothie-640w.png';
+import CarrotSmoothie from 'Assets/recipe-image-carrot-smoothie-640w.png';
 
 const recipes = [
   {

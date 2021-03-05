@@ -1,6 +1,6 @@
 import React from 'react';
 import './ResetFiltersButton.css';
-import ResetFiltersIcon from '../assets/icon-refresh.svg';
+import ResetFiltersIcon from 'Assets/icon-refresh.svg';
 
 const ResetFiltersButton = () => {
   return (

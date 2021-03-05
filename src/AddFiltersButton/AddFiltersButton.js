@@ -1,6 +1,6 @@
 import React from 'react';
 import './AddFiltersButton.css';
-import MenuIcon from '../assets/icon-filter.svg';
+import MenuIcon from 'Assets/icon-filter.svg';
 
 const AddFiltersButton = ({ onClick }) => {
   return (

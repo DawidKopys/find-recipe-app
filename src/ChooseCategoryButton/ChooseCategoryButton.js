@@ -1,6 +1,6 @@
 import React from 'react';
 import './ChooseCategoryButton.css';
-import MenuIcon from '../assets/icon-arrow-downward.svg';
+import MenuIcon from 'Assets/icon-arrow-downward.svg';
 
 const ChooseCategoryButton = ({ onClick }) => {
   return (
