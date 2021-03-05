@@ -3,8 +3,7 @@ import './FindRecipeApp.css';
 import recipes from './recipes';
 import filters from './filters';
 import Sidebar from './Sidebar/Sidebar';
-import RecipesList from './RecipesList/RecipesList';
-import EmptyResultsAlert from './EmptyResultsAlert/EmptyResultsAlert';
+import RecipesSection from './RecipesSection/RecipesSection';
 
 function isRecipeApplicable(recipeTags, filters) {
   /* Check if recipe tags contains all set filters */
@@ -65,11 +64,7 @@ const FindRecipeApp = () => {
         toggleFilter={toggleFilter}
         setNameFilter={setNameFilter}
       />
-      {filteredRecipes.length === 0 ? (
-        <EmptyResultsAlert />
-      ) : (
-        <RecipesList recipes={filteredRecipes} />
-      )}
+      <RecipesSection recipes={filteredRecipes} />
     </div>
   );
 };
