@@ -12,6 +12,7 @@ const Pagination = ({ itemsPerPage, totalItems, currentPage, paginate }) => {
     <nav className='pagination-nav recipes-container__pagination-nav'>
       <ul className='pagination'>
         <li
+          onClick={() => paginate(currentPage - 1)}
           className={`pagination__list-item${
             currentPage === 1
               ? ' pagination__list-item--disabled'
@@ -19,7 +20,6 @@ const Pagination = ({ itemsPerPage, totalItems, currentPage, paginate }) => {
           }`}
         >
           <a
-            onClick={() => paginate(currentPage - 1)}
             className={`pagination__link${
               currentPage === 1 ? ' pagination__link--disabled' : ''
             } pagination__link--previous`}
@@ -47,6 +47,7 @@ const Pagination = ({ itemsPerPage, totalItems, currentPage, paginate }) => {
           </li>
         ))}
         <li
+          onClick={() => paginate(currentPage + 1)}
           className={`pagination__list-item${
             currentPage === lastPageNumber
               ? ' pagination__list-item--disabled'
@@ -54,7 +55,6 @@ const Pagination = ({ itemsPerPage, totalItems, currentPage, paginate }) => {
           }`}
         >
           <a
-            onClick={() => paginate(currentPage + 1)}
             className={`pagination__link${
               currentPage === lastPageNumber
                 ? ' pagination__link--disabled'

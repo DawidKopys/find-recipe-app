@@ -37,6 +37,7 @@
   cursor: default;
   border: 1px solid black;
   border-radius: 3px;
+  pointer-events: none;
 }
 
 .pagination__link--current {
@@ -46,11 +47,11 @@
 /* Disabled */
 .pagination__list-item--disabled {
   cursor: default;
+  pointer-events: none;
 }
 
 .pagination__link--disabled {
   color: #e5e5e5;
-  pointer-events: none;
 }
 
 /* On hover colors change */
