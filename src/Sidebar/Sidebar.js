@@ -6,6 +6,7 @@ import AddFiltersButton from '../AddFiltersButton/AddFiltersButton';
 import ResetFiltersButton from '../ResetFiltersButton/ResetFiltersButton';
 import ModalCategories from '../Modals/ModalCategories/ModalCategories';
 import ModalFilters from '../Modals/ModalFilters/ModalFilters';
+import { useWindowResize } from '../useWindowResize';
 
 const Sidebar = ({
   activeCategory,
@@ -16,6 +17,7 @@ const Sidebar = ({
   setNameFilter,
 }) => {
   const [openedModal, setOpenedModal] = useState('none');
+  const { windowWidth } = useWindowResize();
 
   const closeModal = () => {
     setOpenedModal('none');
@@ -28,6 +30,12 @@ const Sidebar = ({
       document.body.style.overflow = 'unset';
     }
   }, [openedModal]);
+
+  useEffect(() => {
+    if (windowWidth >= 800 && openedModal !== 'none') {
+      setOpenedModal('none');
+    }
+  }, [windowWidth]);
 
   return (
     <section className='sidebar recipe-finder-app__sidebar'>

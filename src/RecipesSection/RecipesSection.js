@@ -1,8 +1,8 @@
 import React from 'react';
 import RecipesList from './RecipesList/RecipesList';
-import EmptyResultsAlert from '../EmptyResultsAlert/EmptyResultsAlert';
+import EmptyResultsAlert from './EmptyResultsAlert/EmptyResultsAlert';
 import RecipesListPagination from './RecipesList/RecipesListPagination';
-import { useWindowResize } from './useWindowResize';
+import { useWindowResize } from '../useWindowResize';
 
 const RecipesSection = ({ recipes }) => {
   const { windowWidth } = useWindowResize();
