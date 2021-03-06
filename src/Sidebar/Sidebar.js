@@ -15,6 +15,7 @@ const Sidebar = ({
   activeFilters,
   toggleFilter,
   setNameFilter,
+  resetFilters,
 }) => {
   const [openedModal, setOpenedModal] = useState('none');
   const { windowWidth } = useWindowResize();
@@ -64,7 +65,7 @@ const Sidebar = ({
             setOpenedModal('add-filters-modal');
           }}
         />
-        <ResetFiltersButton />
+        <ResetFiltersButton resetFilters={resetFilters} />
       </section>
     </section>
   );

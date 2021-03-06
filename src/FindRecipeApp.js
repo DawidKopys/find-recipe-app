@@ -33,6 +33,14 @@ const FindRecipeApp = () => {
     }
   };
 
+  const resetFilters = () => {
+    let newActiveFilters = { ...activeFilters };
+    for (const filterName in newActiveFilters) {
+      newActiveFilters[filterName] = false;
+    }
+    setActiveFilters(newActiveFilters);
+  };
+
   useEffect(() => {
     if (activeCategory === 'all') {
       setFilteredRecipes(
@@ -62,6 +70,7 @@ const FindRecipeApp = () => {
         filters={filters}
         activeFilters={activeFilters}
         toggleFilter={toggleFilter}
+        resetFilters={resetFilters}
         setNameFilter={setNameFilter}
       />
       <RecipesSection recipes={filteredRecipes} />
