@@ -20,6 +20,7 @@
   height: 40px;
   width: 40px;
   background-color: white;
+  opacity: 85%;
   background-image: url('Assets/icon-arrow-thin-big-w15-up-black.svg');
   background-position: center;
   background-repeat: no-repeat;
