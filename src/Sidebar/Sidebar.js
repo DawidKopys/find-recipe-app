@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Sidebar.css';
 import SearchBar from '../SearchBar/SearchBar';
 import ChooseCategoryButton from '../ChooseCategoryButton/ChooseCategoryButton';
@@ -20,6 +20,14 @@ const Sidebar = ({
   const closeModal = () => {
     setOpenedModal('none');
   };
+
+  useEffect(() => {
+    if (openedModal !== 'none') {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [openedModal]);
 
   return (
     <section className='sidebar recipe-finder-app__sidebar'>
