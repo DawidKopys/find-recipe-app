@@ -10,6 +10,7 @@ const RecipesList = ({ recipes }) => {
           <RecipeCard key={recipe.id} recipeDetails={recipe} />
         ))}
       </div>
+      <button className='btn-scroll-to-top recipes-container__btn-scroll-to-top'></button>
     </main>
   );
 };

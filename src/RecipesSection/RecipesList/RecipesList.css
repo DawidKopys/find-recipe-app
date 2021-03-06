@@ -4,4 +4,25 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-template-rows: repeat(3, 360px);
   }
+
+  .btn-scroll-to-top {
+    display: none;
+  }
+}
+
+.recipes-container__btn-scroll-to-top {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+}
+
+.btn-scroll-to-top {
+  height: 40px;
+  width: 40px;
+  background-color: white;
+  background-image: url('Assets/icon-arrow-thin-big-w15-up-black.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.25);
 }
