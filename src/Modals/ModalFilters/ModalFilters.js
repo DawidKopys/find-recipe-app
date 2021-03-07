@@ -9,12 +9,10 @@ const ModalFilters = ({
   activeFilters,
   toggleFilter,
   ingredientsFilter,
-  addIngredientFilter,
-  deleteIngredientFilter,
+  addIngredientsFilter,
+  deleteIngredientsFilter,
 }) => {
   const [addIngredientsInput, setAddIngredientsInput] = useState('');
-
-  const getKey = () => new Date().getTime().toString();
 
   return (
     <section className={`modal${isOpen ? ' modal--open' : ''}`}>
@@ -55,7 +53,7 @@ const ModalFilters = ({
             }}
             onKeyPress={(e) => {
               if (e.key === 'Enter') {
-                addIngredientFilter(addIngredientsInput);
+                addIngredientsFilter(addIngredientsInput);
                 setAddIngredientsInput('');
               }
             }}
@@ -67,7 +65,7 @@ const ModalFilters = ({
               key={ingredient.id}
               title='Delete'
               className='ingredients-list__item btn'
-              onClick={() => deleteIngredientFilter(ingredient.ingredientName)}
+              onClick={() => deleteIngredientsFilter(ingredient.ingredientName)}
             >
               {ingredient.ingredientName}
             </button>

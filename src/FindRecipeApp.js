@@ -5,15 +5,27 @@ import filters from './filters';
 import Sidebar from './Sidebar/Sidebar';
 import RecipesSection from './RecipesSection/RecipesSection';
 
-function isRecipeApplicable(recipeTags, filters) {
-  /* Check if recipe tags contains all set filters */
-  for (const filter in filters) {
-    if (filters[filter] === true) {
+function isRecipeApplicable(
+  recipeTags,
+  customFilters,
+  recipeIngredients,
+  ingredientsFilters
+) {
+  /* Check if recipe tags array contain all set filters */
+  for (const filter in customFilters) {
+    if (customFilters[filter] === true) {
       if (!recipeTags.includes(filter)) {
         return false;
       }
     }
   }
+  /* Check if recipe ingredients array contains all set ingredients */
+  for (const ingredient of ingredientsFilters) {
+    if (!recipeIngredients.includes(ingredient.ingredientName)) {
+      return false;
+    }
+  }
+
   return true;
 }
 
@@ -21,37 +33,37 @@ const FindRecipeApp = () => {
   const [filteredRecipes, setFilteredRecipes] = useState(recipes);
   const [activeCategory, setActiveCategory] = useState('all');
   const [nameFilter, setNameFilter] = useState('');
-  const [activeFilters, setActiveFilters] = useState(
+  const [customFilters, setCustomFilters] = useState(
     filters.reduce((o, filter) => ({ ...o, [filter.filterName]: false }), {})
   );
-  const [ingredientsFilter, setIngredientsFilter] = useState([]);
+  const [ingredientsFilters, setIngredientsFilters] = useState([]);
 
   const toggleFilter = (filter) => {
-    if (activeFilters[filter] === true) {
-      setActiveFilters({ ...activeFilters, [filter]: false });
+    if (customFilters[filter] === true) {
+      setCustomFilters({ ...customFilters, [filter]: false });
     } else {
-      setActiveFilters({ ...activeFilters, [filter]: true });
+      setCustomFilters({ ...customFilters, [filter]: true });
     }
   };
 
   const resetFilters = () => {
-    let newActiveFilters = { ...activeFilters };
+    let newActiveFilters = { ...customFilters };
     for (const filterName in newActiveFilters) {
       newActiveFilters[filterName] = false;
     }
-    setActiveFilters(newActiveFilters);
+    setCustomFilters(newActiveFilters);
   };
 
-  const addIngredientFilter = (ingredient) => {
-    setIngredientsFilter([
-      ...ingredientsFilter,
-      { id: Date.now(), ingredientName: ingredient },
+  const addIngredientsFilter = (ingredient) => {
+    setIngredientsFilters([
+      ...ingredientsFilters,
+      { id: Date.now(), ingredientName: ingredient.toLowerCase() },
     ]);
   };
 
-  const deleteIngredientFilter = (ingredient) => {
-    setIngredientsFilter(
-      ingredientsFilter.filter(
+  const deleteIngredientsFilter = (ingredient) => {
+    setIngredientsFilters(
+      ingredientsFilters.filter(
         (currentIngredient) => currentIngredient.ingredientName !== ingredient
       )
     );
@@ -62,8 +74,13 @@ const FindRecipeApp = () => {
       setFilteredRecipes(
         recipes.filter(
           (recipe) =>
-            isRecipeApplicable(recipe.tags, activeFilters) &&
-            recipe.name.toLowerCase().includes(nameFilter)
+            recipe.name.toLowerCase().includes(nameFilter) &&
+            isRecipeApplicable(
+              recipe.tags,
+              customFilters,
+              recipe.ingredients,
+              ingredientsFilters
+            )
         )
       );
     } else {
@@ -72,11 +89,16 @@ const FindRecipeApp = () => {
           (recipe) =>
             recipe.category === activeCategory &&
             recipe.name.toLowerCase().includes(nameFilter) &&
-            isRecipeApplicable(recipe.tags, activeFilters)
+            isRecipeApplicable(
+              recipe.tags,
+              customFilters,
+              recipe.ingredients,
+              ingredientsFilters
+            )
         )
       );
     }
-  }, [activeCategory, activeFilters, nameFilter]);
+  }, [activeCategory, customFilters, nameFilter, ingredientsFilters]);
 
   return (
     <div className='recipe-finder-app'>
@@ -84,13 +106,13 @@ const FindRecipeApp = () => {
         activeCategory={activeCategory}
         setActiveCategory={setActiveCategory}
         filters={filters}
-        activeFilters={activeFilters}
+        activeFilters={customFilters}
         toggleFilter={toggleFilter}
         resetFilters={resetFilters}
         setNameFilter={setNameFilter}
-        ingredientsFilter={ingredientsFilter}
-        addIngredientFilter={addIngredientFilter}
-        deleteIngredientFilter={deleteIngredientFilter}
+        ingredientsFilter={ingredientsFilters}
+        addIngredientsFilter={addIngredientsFilter}
+        deleteIngredientsFilter={deleteIngredientsFilter}
       />
       <RecipesSection recipes={filteredRecipes} />
     </div>

@@ -65,56 +65,6 @@
   background-position: right 30px top 50%;
 }
 
-/* Filter by ingredients */
-.modal-content__ingredients-input {
-  margin: 0 auto;
-}
-
-.ingredients-input {
-  width: 70%;
-}
-
-.ingredients-input__input {
-  height: 44px;
-  padding: 12px;
-  margin-top: 10px;
-  width: 100%;
-  padding-left: 20px;
-  border: 1px solid #828282;
-  border-radius: 22px;
-  background-image: url('Assets/icon-add-ingredients.svg');
-  background-repeat: no-repeat;
-  background-position: right 15px top 50%;
-}
-
-.modal-content__ingredients-list {
-  margin: 25px auto;
-}
-
-.ingredients-list {
-  width: 85%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
-.ingredients-list__item {
-  font-size: 0.9375rem;
-  padding-left: 10px;
-  padding-right: 30px;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 10px;
-  line-height: 2;
-  color: white;
-  background-color: var(--color-purple);
-  background-image: url('Assets/icon-cross-ingredients.svg');
-  background-repeat: no-repeat;
-  background-position: right 10px top 50%;
-  border-radius: 15px;
-  box-shadow: 2px 2px 2px 1px #dcdcdc;
-}
-
 /* Typography */
 .modal {
   font-family: 'Poppins', sans-serif;

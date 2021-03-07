@@ -15,8 +15,8 @@ const Sidebar = ({
   setNameFilter,
   resetFilters,
   ingredientsFilter,
-  addIngredientFilter,
-  deleteIngredientFilter,
+  addIngredientsFilter,
+  deleteIngredientsFilter,
 }) => {
   const [openedModal, setOpenedModal] = useState('none');
   const { windowWidth } = useWindowResize();
@@ -61,8 +61,8 @@ const Sidebar = ({
         toggleFilter={toggleFilter}
         filters={filters}
         ingredientsFilter={ingredientsFilter}
-        addIngredientFilter={addIngredientFilter}
-        deleteIngredientFilter={deleteIngredientFilter}
+        addIngredientsFilter={addIngredientsFilter}
+        deleteIngredientsFilter={deleteIngredientsFilter}
       />
     </section>
   );
