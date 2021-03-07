@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Sidebar.css';
-import SearchBar from '../SearchBar/SearchBar';
-import ChooseCategoryButton from '../ChooseCategoryButton/ChooseCategoryButton';
-import AddFiltersButton from '../AddFiltersButton/AddFiltersButton';
-import ResetFiltersButton from '../ResetFiltersButton/ResetFiltersButton';
+import SearchBar from './SearchBar/SearchBar';
+import FiltersBar from './FiltersBar/FiltersBar';
 import ModalCategories from '../Modals/ModalCategories/ModalCategories';
 import ModalFilters from '../Modals/ModalFilters/ModalFilters';
 import { useWindowResize } from '../useWindowResize';
@@ -38,13 +36,14 @@ const Sidebar = ({
     }
   }, [windowWidth]);
 
-  const isAnyFilterSet = () => {
-    return Object.values(activeFilters).includes(true);
-  };
-
   return (
     <section className='sidebar recipe-finder-app__sidebar'>
       <SearchBar setNameFilter={setNameFilter} />
+      <FiltersBar
+        activeFilters={activeFilters}
+        setOpenedModal={setOpenedModal}
+        resetFilters={resetFilters}
+      />
       <ModalCategories
         isOpen={openedModal === 'recipe-categories-modal'}
         closeModal={closeModal}
@@ -58,19 +57,6 @@ const Sidebar = ({
         toggleFilter={toggleFilter}
         filters={filters}
       />
-      <section className='filters-bar sidebar__filters-bar'>
-        <ChooseCategoryButton
-          onClick={() => {
-            setOpenedModal('recipe-categories-modal');
-          }}
-        />
-        <AddFiltersButton
-          onClick={() => {
-            setOpenedModal('add-filters-modal');
-          }}
-        />
-        {isAnyFilterSet() && <ResetFiltersButton resetFilters={resetFilters} />}
-      </section>
     </section>
   );
 };

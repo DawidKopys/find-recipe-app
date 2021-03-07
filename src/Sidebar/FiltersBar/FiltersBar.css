@@ -1,0 +1,47 @@
+.sidebar__filters-bar {
+  margin-bottom: 25px;
+  padding: 0 25px;
+}
+
+/* Filters bar layout */
+.filters-bar {
+  display: flex;
+  height: 40px;
+}
+
+.filters-bar__item {
+  flex-grow: 1;
+}
+
+/* Filters bar separators */
+.filters-bar__item:not(:first-child)::before {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 20px;
+  background-color: rgba(130, 130, 130, 0.7);
+  align-self: center;
+}
+
+/* Filters Bar shadow */
+.filters-bar {
+  position: relative;
+}
+
+.filters-bar::after {
+  content: '';
+  display: block;
+  height: 40px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  box-shadow: 0px 5px 6px 0px rgba(130, 130, 130, 0.2);
+  z-index: -1;
+}
+
+@media screen and (min-width: 800px) {
+  .filters-bar {
+    display: none;
+  }
+}
