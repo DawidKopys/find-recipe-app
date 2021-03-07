@@ -8,8 +8,13 @@ const ModalFilters = ({
   filters,
   activeFilters,
   toggleFilter,
+  ingredientsFilter,
+  addIngredientFilter,
+  deleteIngredientFilter,
 }) => {
   const [addIngredientsInput, setAddIngredientsInput] = useState('');
+
+  const getKey = () => new Date().getTime().toString();
 
   return (
     <section className={`modal${isOpen ? ' modal--open' : ''}`}>
@@ -48,15 +53,25 @@ const ModalFilters = ({
             onChange={(e) => {
               setAddIngredientsInput(e.target.value);
             }}
+            onKeyPress={(e) => {
+              if (e.key === 'Enter') {
+                addIngredientFilter(addIngredientsInput);
+                setAddIngredientsInput('');
+              }
+            }}
           />
         </div>
         <div className='ingredients-list modal-content__ingredients-list'>
-          <button className='ingredients-list__item btn'>Eggs</button>
-          <button className='ingredients-list__item btn'>Spinach</button>
-          <button className='ingredients-list__item btn'>Avocado</button>
-          <button className='ingredients-list__item btn'>Banana</button>
-          <button className='ingredients-list__item btn'>Garlic</button>
-          <button className='ingredients-list__item btn'>Toast Bread</button>
+          {ingredientsFilter.map((ingredient) => (
+            <button
+              key={ingredient.id}
+              title='Delete'
+              className='ingredients-list__item btn'
+              onClick={() => deleteIngredientFilter(ingredient.ingredientName)}
+            >
+              {ingredient.ingredientName}
+            </button>
+          ))}
         </div>
       </div>
     </section>

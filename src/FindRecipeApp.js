@@ -24,6 +24,7 @@ const FindRecipeApp = () => {
   const [activeFilters, setActiveFilters] = useState(
     filters.reduce((o, filter) => ({ ...o, [filter.filterName]: false }), {})
   );
+  const [ingredientsFilter, setIngredientsFilter] = useState([]);
 
   const toggleFilter = (filter) => {
     if (activeFilters[filter] === true) {
@@ -39,6 +40,21 @@ const FindRecipeApp = () => {
       newActiveFilters[filterName] = false;
     }
     setActiveFilters(newActiveFilters);
+  };
+
+  const addIngredientFilter = (ingredient) => {
+    setIngredientsFilter([
+      ...ingredientsFilter,
+      { id: Date.now(), ingredientName: ingredient },
+    ]);
+  };
+
+  const deleteIngredientFilter = (ingredient) => {
+    setIngredientsFilter(
+      ingredientsFilter.filter(
+        (currentIngredient) => currentIngredient.ingredientName !== ingredient
+      )
+    );
   };
 
   useEffect(() => {
@@ -72,6 +88,9 @@ const FindRecipeApp = () => {
         toggleFilter={toggleFilter}
         resetFilters={resetFilters}
         setNameFilter={setNameFilter}
+        ingredientsFilter={ingredientsFilter}
+        addIngredientFilter={addIngredientFilter}
+        deleteIngredientFilter={deleteIngredientFilter}
       />
       <RecipesSection recipes={filteredRecipes} />
     </div>
