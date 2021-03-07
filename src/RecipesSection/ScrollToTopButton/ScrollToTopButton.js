@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './ScrollToTopButton.css';
+import { useWindowScroll } from '../../useWindowScroll';
 
 const ScrollToTopButton = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const { windowScrollY } = useWindowScroll({ debounceTime: 250 });
+
   const smoothScrollToTop = () => {
     const currentScroll =
       document.documentElement.scrollTop || document.body.scrollTop;
@@ -16,8 +20,22 @@ const ScrollToTopButton = () => {
     }
   };
 
+  useEffect(() => {
+    if (windowScrollY < -100) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  }, [windowScrollY]);
+
   return (
-    <button className='btn-scroll-to-top' onClick={smoothScrollToTop}></button>
+    <button
+      className={`btn-scroll-to-top${
+        isVisible ? ' btn-scroll-to-top--visible' : ''
+      }`}
+      onClick={smoothScrollToTop}
+      disabled={isVisible ? false : true}
+    ></button>
   );
 };
 
