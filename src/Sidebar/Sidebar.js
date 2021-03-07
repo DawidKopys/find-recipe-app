@@ -38,6 +38,10 @@ const Sidebar = ({
     }
   }, [windowWidth]);
 
+  const isAnyFilterSet = () => {
+    return Object.values(activeFilters).includes(true);
+  };
+
   return (
     <section className='sidebar recipe-finder-app__sidebar'>
       <SearchBar setNameFilter={setNameFilter} />
@@ -65,7 +69,7 @@ const Sidebar = ({
             setOpenedModal('add-filters-modal');
           }}
         />
-        <ResetFiltersButton resetFilters={resetFilters} />
+        {isAnyFilterSet() && <ResetFiltersButton resetFilters={resetFilters} />}
       </section>
     </section>
   );
