@@ -41,7 +41,7 @@
 }
 
 .pagination__link--current {
-  color: #7b61ff;
+  color: var(--color-purple);
 }
 
 /* Disabled */
@@ -51,12 +51,12 @@
 }
 
 .pagination__link--disabled {
-  color: #e5e5e5;
+  color: var(--color-grey-2);
 }
 
 /* On hover colors change */
 .pagination__list-item--active:hover .pagination__link {
-  color: #7b61ff;
+  color: var(--color-purple);
 }
 
 /* Next and Previous buttons icons */

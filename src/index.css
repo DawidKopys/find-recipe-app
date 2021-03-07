@@ -85,3 +85,11 @@ a {
   font-weight: 700;
   font-style: normal;
 }
+
+/* Variables */
+:root {
+  --color-purple: #7b61ff;
+  --color-grey-1: #f7f7f7;
+  --color-grey-2: #e5e5e5;
+  --color-grey-3: #828282;
+}

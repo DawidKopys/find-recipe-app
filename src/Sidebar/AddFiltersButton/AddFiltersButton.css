@@ -34,5 +34,5 @@
 }
 
 .filters-btn__text--highlight {
-  color: #7b61ff;
+  color: var(--color-purple);
 }

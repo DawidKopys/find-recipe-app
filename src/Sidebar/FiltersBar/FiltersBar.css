@@ -19,7 +19,7 @@
   display: block;
   width: 1px;
   height: 20px;
-  background-color: rgba(130, 130, 130, 0.7);
+  background-color: var(--color-grey-3);
   align-self: center;
 }
 

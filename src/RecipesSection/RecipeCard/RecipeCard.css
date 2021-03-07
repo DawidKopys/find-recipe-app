@@ -39,6 +39,10 @@
   max-width: 280px;
 }
 
+.recipe-macro__title {
+  margin-bottom: 10px;
+}
+
 /* Typography */
 .recipe-card {
   font-family: 'Poppins', sans-serif;
@@ -53,7 +57,7 @@
 .recipe-macro__title {
   font-size: 0.8rem;
   font-weight: 100;
-  color: #828282;
+  color: var(--color-grey-3);
 }
 
 .macro-details__macro-name {
@@ -65,7 +69,7 @@
   text-align: center;
   font-weight: 100;
   font-size: 0.8rem;
-  color: #828282;
+  color: var(--color-grey-3);
 }
 
 @media screen and (min-width: 800px) {

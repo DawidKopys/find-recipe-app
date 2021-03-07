@@ -107,7 +107,7 @@
   margin-bottom: 10px;
   line-height: 2;
   color: white;
-  background-color: #7b61ff;
+  background-color: var(--color-purple);
   background-image: url('Assets/icon-cross-ingredients.svg');
   background-repeat: no-repeat;
   background-position: right 10px top 50%;
