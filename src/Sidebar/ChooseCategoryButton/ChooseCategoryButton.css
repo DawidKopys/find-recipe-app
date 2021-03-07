@@ -29,6 +29,7 @@
   font-size: 0.9375rem; /* 15px for 16px html */
   font-weight: 400;
   font-style: normal;
+  text-transform: capitalize;
 }
 
 .choose-category-btn,
@@ -36,4 +37,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.choose-category-btn__text--highlight {
+  color: #7b61ff;
 }

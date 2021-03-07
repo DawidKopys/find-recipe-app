@@ -40,6 +40,7 @@ const Sidebar = ({
     <section className='sidebar recipe-finder-app__sidebar'>
       <SearchBar setNameFilter={setNameFilter} />
       <FiltersBar
+        activeCategory={activeCategory}
         activeFilters={activeFilters}
         setOpenedModal={setOpenedModal}
         resetFilters={resetFilters}
