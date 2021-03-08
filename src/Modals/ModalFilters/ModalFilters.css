@@ -12,19 +12,37 @@
   width: 70%;
 }
 
-.ingredients-input__input {
-  height: 44px;
-  padding: 12px;
-  margin-top: 10px;
-  width: 100%;
-  padding-left: 20px;
-  border: 1px solid #828282;
-  border-radius: 22px;
-  background-image: url('Assets/icon-add-ingredients.svg');
-  background-repeat: no-repeat;
-  background-position: right 15px top 50%;
+/* Override default Combobox styling */
+.rw-widget-container {
+  border: 1px solid #828282 !important;
+  border-radius: 22px !important;
+  height: 44px !important;
+  padding-right: 0 !important;
+  margin-top: 10px !important;
 }
 
+.rw-state-focus .rw-widget-container {
+  outline: none !important;
+  box-shadow: unset !important;
+}
+
+.rw-widget-input {
+  padding-left: 20px !important;
+  padding-right: 0 !important;
+  font-weight: 100 !important;
+  font-size: 1rem !important;
+}
+
+.rw-select > * {
+  width: 1.9em !important;
+  margin-right: 5px !important;
+}
+
+.rw-select-bordered {
+  border: none !important;
+}
+
+/* Active Ingredient Filters List */
 .modal-content__ingredients-list {
   margin: 25px auto;
 }
@@ -56,4 +74,8 @@
 /* Typography */
 .ingredients-list__item {
   text-transform: capitalize;
+}
+
+/* Combobox */
+.rw-widget-input::placeholder {
 }

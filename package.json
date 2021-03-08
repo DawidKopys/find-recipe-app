@@ -12,7 +12,8 @@
   "dependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-icons": "^4.2.0"
+    "react-icons": "^4.2.0",
+    "react-widgets": "^4.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

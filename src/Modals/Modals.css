@@ -20,6 +20,7 @@
 
 .modal-content {
   position: relative;
+  overflow: visible;
 }
 
 .modal-content__heading {
@@ -86,6 +87,7 @@
     position: inherit;
     width: auto;
     height: auto;
+    overflow: visible;
   }
 
   .modal-content__btn-exit {
