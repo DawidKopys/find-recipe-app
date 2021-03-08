@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './ModalFilters.css';
 import '../Modals.css';
 import Combobox from 'react-widgets/lib/Combobox';
-import 'react-widgets/dist/css/react-widgets.css';
-import DropdownIcon from 'Assets/icon-arrow-downward.svg';
+import './Combobox.scss';
 
 const ingredients = [
   'apple',
@@ -73,7 +72,7 @@ const ModalFilters = ({
   addIngredientsFilter,
   deleteIngredientsFilter,
 }) => {
-  let afterSelect = false;
+  const afterSelect = useRef(false);
   const [addIngredientsInput, setAddIngredientsInput] = useState('');
 
   return (
@@ -104,21 +103,23 @@ const ModalFilters = ({
             placeholder='Add ingredients'
             suggest={true}
             data={ingredients}
+            disabled={ingredientsFilter.map(
+              (ingredientObj) => ingredientObj.ingredientName
+            )}
             value={addIngredientsInput}
             onChange={(value) => {
-              if (afterSelect === false) {
+              if (afterSelect.current === false) {
                 setAddIngredientsInput(value);
-                console.log('onChange');
               } else {
-                afterSelect = false;
+                afterSelect.current = false;
               }
             }}
             onSelect={(item) => {
-              console.log('onSelect');
               setAddIngredientsInput('');
               addIngredientsFilter(item);
-              afterSelect = true;
+              afterSelect.current = true;
             }}
+            filter='startsWith'
           />
         </div>
         <div className='ingredients-list modal-content__ingredients-list'>
