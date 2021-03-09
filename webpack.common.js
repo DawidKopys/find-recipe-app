@@ -1,16 +1,16 @@
 const path = require('path');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
-  output: {
-    path: __dirname + '/dist',
-    filename: 'bundle.js',
+  entry: {
+    app: './src/index.js',
   },
-  devServer: {
-    contentBase: './dist',
-    hot: true,
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
   },
   module: {
     rules: [
@@ -41,7 +41,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new HtmlWebPackPlugin({
+    new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
   ],
@@ -50,5 +50,12 @@ module.exports = {
       react: path.join(__dirname, 'node_modules', 'react'),
       Assets: path.resolve(__dirname, 'src/assets/'),
     },
+  },
+  optimization: {
+    minimizer: [
+      // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
+      `...`,
+      new CssMinimizerPlugin(),
+    ],
   },
 };
