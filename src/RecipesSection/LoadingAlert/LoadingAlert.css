@@ -1,0 +1,31 @@
+.recipe-finder-app__loading-message {
+  margin: 50px 20px;
+}
+
+.loading-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loading-message__header {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  text-align: center;
+  color: var(--color-grey-3);
+}
+
+.loading-message__sub-header {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--color-grey-3);
+}
+
+@media screen and (min-width: 800px) {
+  .loading-message__header {
+    font-size: 3rem;
+  }
+}

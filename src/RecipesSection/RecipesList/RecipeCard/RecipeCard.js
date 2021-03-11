@@ -6,12 +6,12 @@ const RecipeCard = ({
     id,
     name,
     macro: { calories, protein, carbs, fats },
-    image,
+    imageURL,
   },
 }) => {
   return (
     <div className='recipe-card recipes-list__recipe-card' key={id}>
-      <img className='recipe-card__img' src={image} alt={name} />
+      <img className='recipe-card__img' src={imageURL} alt={name} />
       <div className='recipe-info recipe-card__recipe-info'>
         <h3 className='recipe-info__recipe-name'>{name}</h3>
         <div className='recipe-macro'>

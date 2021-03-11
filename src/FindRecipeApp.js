@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './FindRecipeApp.css';
-import recipes from './recipes';
 import filters from './filters';
 import Sidebar from './Sidebar/Sidebar';
 import RecipesSection from './RecipesSection/RecipesSection';
+import 'regenerator-runtime/runtime';
 
 function isRecipeApplicable(
   recipeTags,
@@ -29,14 +29,38 @@ function isRecipeApplicable(
   return true;
 }
 
+const recipesURL = process.env.API_URL;
+
 const FindRecipeApp = () => {
-  const [filteredRecipes, setFilteredRecipes] = useState(recipes);
+  const allRecipes = useRef([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [activeCategory, setActiveCategory] = useState('all');
   const [nameFilter, setNameFilter] = useState('');
   const [customFilters, setCustomFilters] = useState(
     filters.reduce((o, filter) => ({ ...o, [filter.filterName]: false }), {})
   );
   const [ingredientsFilters, setIngredientsFilters] = useState([]);
+
+  const getRecipes = async () => {
+    try {
+      const response = await fetch(recipesURL, {
+        headers: {
+          'X-Master-Key': process.env.API_KEY,
+        },
+      });
+      const responseJSON = await response.json();
+      allRecipes.current = responseJSON.record;
+      setIsLoading(false);
+      setFilteredRecipes(allRecipes.current);
+    } catch (error) {
+      console.log('reject:', error);
+    }
+  };
+
+  useEffect(() => {
+    getRecipes();
+  }, []);
 
   const toggleFilter = (filter) => {
     if (customFilters[filter] === true) {
@@ -72,7 +96,7 @@ const FindRecipeApp = () => {
   useEffect(() => {
     if (activeCategory === 'all') {
       setFilteredRecipes(
-        recipes.filter(
+        allRecipes.current.filter(
           (recipe) =>
             recipe.name.toLowerCase().includes(nameFilter) &&
             isRecipeApplicable(
@@ -85,7 +109,7 @@ const FindRecipeApp = () => {
       );
     } else {
       setFilteredRecipes(
-        recipes.filter(
+        allRecipes.current.filter(
           (recipe) =>
             recipe.category === activeCategory &&
             recipe.name.toLowerCase().includes(nameFilter) &&
@@ -114,7 +138,7 @@ const FindRecipeApp = () => {
         addIngredientsFilter={addIngredientsFilter}
         deleteIngredientsFilter={deleteIngredientsFilter}
       />
-      <RecipesSection recipes={filteredRecipes} />
+      <RecipesSection isLoading={isLoading} recipes={filteredRecipes} />
     </div>
   );
 };
