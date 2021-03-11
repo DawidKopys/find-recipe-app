@@ -102,10 +102,13 @@ const ModalFilters = ({
           <Combobox
             placeholder='Add ingredients'
             suggest={true}
-            data={ingredients}
-            disabled={ingredientsFilter.map(
-              (ingredientObj) => ingredientObj.ingredientName
-            )}
+            data={ingredients.filter((currentIngredient) => {
+              /* Dont include already active ingredient filters in the options list */
+              const arrayIngredientsFilter = ingredientsFilter.map(
+                (ingredientObj) => ingredientObj.ingredientName
+              );
+              return !arrayIngredientsFilter.includes(currentIngredient);
+            })}
             value={addIngredientsInput}
             onChange={(value) => {
               if (afterSelect.current === false) {
