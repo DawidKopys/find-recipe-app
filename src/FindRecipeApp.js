@@ -94,34 +94,19 @@ const FindRecipeApp = () => {
   };
 
   useEffect(() => {
-    if (activeCategory === 'all') {
-      setFilteredRecipes(
-        allRecipes.current.filter(
-          (recipe) =>
-            recipe.name.toLowerCase().includes(nameFilter) &&
-            isRecipeApplicable(
-              recipe.tags,
-              customFilters,
-              recipe.ingredients,
-              ingredientsFilters
-            )
-        )
-      );
-    } else {
-      setFilteredRecipes(
-        allRecipes.current.filter(
-          (recipe) =>
-            recipe.category === activeCategory &&
-            recipe.name.toLowerCase().includes(nameFilter) &&
-            isRecipeApplicable(
-              recipe.tags,
-              customFilters,
-              recipe.ingredients,
-              ingredientsFilters
-            )
-        )
-      );
-    }
+    setFilteredRecipes(
+      allRecipes.current.filter(
+        (recipe) =>
+          (activeCategory === 'all' || recipe.category === activeCategory) &&
+          recipe.name.toLowerCase().includes(nameFilter) &&
+          isRecipeApplicable(
+            recipe.tags,
+            customFilters,
+            recipe.ingredients,
+            ingredientsFilters
+          )
+      )
+    );
   }, [activeCategory, customFilters, nameFilter, ingredientsFilters]);
 
   return (
