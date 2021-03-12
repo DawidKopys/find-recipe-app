@@ -5,32 +5,38 @@ import Sidebar from './Sidebar/Sidebar';
 import RecipesSection from './RecipesSection/RecipesSection';
 import 'regenerator-runtime/runtime';
 
-function isRecipeApplicable(
-  recipeTags,
-  customFilters,
-  recipeIngredients,
-  ingredientsFilters
-) {
+const checkRecipeNameFilter = (recipeName, nameFilter) => {
+  return recipeName.toLowerCase().includes(nameFilter);
+};
+
+const checkRecipeCategoryFilter = (recipeCategory, categoryFilter) => {
+  return categoryFilter === 'all' || recipeCategory === categoryFilter;
+};
+
+const checkRecipeCustomFilters = (recipeTags, customFilters) => {
   /* Check if recipe tags array contain all set filters */
   for (const filter in customFilters) {
     if (customFilters[filter] === true) {
+      /* recipe is not applicable if a filter is set and the recipe does not have appropriate tag */
       if (!recipeTags.includes(filter)) {
         return false;
       }
     }
   }
+  return true;
+};
+
+const checkRecipeIngredientsFilters = (
+  recipeIngredients,
+  ingredientsFilters
+) => {
   /* Check if recipe ingredients array contains all set ingredients */
   for (const ingredient of ingredientsFilters) {
     if (!recipeIngredients.includes(ingredient.ingredientName)) {
       return false;
     }
   }
-
   return true;
-}
-
-const checkRecipeNameFilter = (recipeName, nameFilter) => {
-  return recipeName.toLowerCase().includes(nameFilter);
 };
 
 const recipesURL = process.env.API_URL;
@@ -39,7 +45,7 @@ const FindRecipeApp = () => {
   const allRecipes = useRef([]);
   const [isLoading, setIsLoading] = useState(true);
   const [filteredRecipes, setFilteredRecipes] = useState([]);
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [categoryFilter, setCategoryFilter] = useState('all');
   const [nameFilter, setNameFilter] = useState('');
   const [customFilters, setCustomFilters] = useState(
     filters.reduce((o, filter) => ({ ...o, [filter.filterName]: false }), {})
@@ -101,23 +107,19 @@ const FindRecipeApp = () => {
     setFilteredRecipes(
       allRecipes.current.filter(
         (recipe) =>
-          (activeCategory === 'all' || recipe.category === activeCategory) &&
+          checkRecipeCategoryFilter(recipe.category, categoryFilter) &&
           checkRecipeNameFilter(recipe.name, nameFilter) &&
-          isRecipeApplicable(
-            recipe.tags,
-            customFilters,
-            recipe.ingredients,
-            ingredientsFilters
-          )
+          checkRecipeCustomFilters(recipe.tags, customFilters) &&
+          checkRecipeIngredientsFilters(recipe.ingredients, ingredientsFilters)
       )
     );
-  }, [activeCategory, customFilters, nameFilter, ingredientsFilters]);
+  }, [categoryFilter, customFilters, nameFilter, ingredientsFilters]);
 
   return (
     <div className='recipe-finder-app'>
       <Sidebar
-        activeCategory={activeCategory}
-        setActiveCategory={setActiveCategory}
+        activeCategory={categoryFilter}
+        setActiveCategory={setCategoryFilter}
         filters={filters}
         activeFilters={customFilters}
         toggleFilter={toggleFilter}
