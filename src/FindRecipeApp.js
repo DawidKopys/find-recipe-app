@@ -1,49 +1,49 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './FindRecipeApp.css';
 import filters from './filters';
 import Sidebar from './Sidebar/Sidebar';
 import RecipesSection from './RecipesSection/RecipesSection';
 import 'regenerator-runtime/runtime';
 
-const checkRecipeNameFilter = (recipeName, nameFilter) => {
-  return recipeName.toLowerCase().includes(nameFilter);
-};
-
-const checkRecipeCategoryFilter = (recipeCategory, categoryFilter) => {
-  return categoryFilter === 'all' || recipeCategory === categoryFilter;
-};
-
-const checkRecipeCustomFilters = (recipeTags, customFilters) => {
-  /* Check if recipe tags array contain all set filters */
-  for (const filter in customFilters) {
-    if (customFilters[filter] === true) {
-      /* recipe is not applicable if a filter is set and the recipe does not have appropriate tag */
-      if (!recipeTags.includes(filter)) {
-        return false;
-      }
-    }
-  }
-  return true;
-};
-
-const checkRecipeIngredientsFilters = (
-  recipeIngredients,
-  ingredientsFilters
-) => {
-  /* Check if recipe ingredients array contains all set ingredients */
-  for (const ingredient of ingredientsFilters) {
-    if (!recipeIngredients.includes(ingredient.ingredientName)) {
-      return false;
-    }
-  }
-  return true;
-};
-
 const recipesURL = process.env.API_URL;
 
 const FindRecipeApp = () => {
-  const allRecipes = useRef([]);
+  const {
+    isLoading,
+    filteredRecipes,
+    categoryFilter,
+    customFilters,
+    ingredientsFilters,
+    setCategoryFilter,
+    setNameFilter,
+    toggleCustomFilter,
+    resetCustomFilters,
+    addIngredientsFilter,
+    deleteIngredientsFilter,
+  } = useFilterRecipes();
+
+  return (
+    <div className='recipe-finder-app'>
+      <Sidebar
+        activeCategory={categoryFilter}
+        setActiveCategory={setCategoryFilter}
+        filters={filters}
+        activeFilters={customFilters}
+        toggleFilter={toggleCustomFilter}
+        resetFilters={resetCustomFilters}
+        setNameFilter={setNameFilter}
+        ingredientsFilter={ingredientsFilters}
+        addIngredientsFilter={addIngredientsFilter}
+        deleteIngredientsFilter={deleteIngredientsFilter}
+      />
+      <RecipesSection isLoading={isLoading} recipes={filteredRecipes} />
+    </div>
+  );
+};
+
+const useFilterRecipes = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [allRecipes, setAllRecipes] = useState([]);
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [nameFilter, setNameFilter] = useState('');
@@ -60,9 +60,9 @@ const FindRecipeApp = () => {
         },
       });
       const responseJSON = await response.json();
-      allRecipes.current = responseJSON.record;
+      const responseRecipes = responseJSON.record;
+      setAllRecipes(responseRecipes);
       setIsLoading(false);
-      setFilteredRecipes(allRecipes.current);
     } catch (error) {
       console.log('reject:', error);
     }
@@ -72,7 +72,56 @@ const FindRecipeApp = () => {
     getRecipes();
   }, []);
 
-  const toggleFilter = (filter) => {
+  useEffect(() => {
+    setFilteredRecipes(
+      allRecipes.filter(
+        (recipe) =>
+          checkRecipeCategoryFilter(recipe.category) &&
+          checkRecipeNameFilter(recipe.name) &&
+          checkRecipeCustomFilters(recipe.tags) &&
+          checkRecipeIngredientsFilters(recipe.ingredients)
+      )
+    );
+  }, [
+    allRecipes,
+    categoryFilter,
+    customFilters,
+    nameFilter,
+    ingredientsFilters,
+  ]);
+
+  const checkRecipeNameFilter = (recipeName) => {
+    return recipeName.toLowerCase().includes(nameFilter);
+  };
+
+  const checkRecipeCategoryFilter = (recipeCategory) => {
+    return categoryFilter === 'all' || recipeCategory === categoryFilter;
+  };
+
+  const checkRecipeCustomFilters = (recipeTags) => {
+    /* Check if recipe tags array contain all set filters */
+    for (const filter in customFilters) {
+      if (customFilters[filter] === true) {
+        /* recipe is not applicable if a filter is set and the recipe does not have appropriate tag */
+        if (!recipeTags.includes(filter)) {
+          return false;
+        }
+      }
+    }
+    return true;
+  };
+
+  const checkRecipeIngredientsFilters = (recipeIngredients) => {
+    /* Check if recipe ingredients array contains all set ingredients */
+    for (const ingredient of ingredientsFilters) {
+      if (!recipeIngredients.includes(ingredient.ingredientName)) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  const toggleCustomFilter = (filter) => {
     if (customFilters[filter] === true) {
       setCustomFilters({ ...customFilters, [filter]: false });
     } else {
@@ -80,7 +129,7 @@ const FindRecipeApp = () => {
     }
   };
 
-  const resetFilters = () => {
+  const resetCustomFilters = () => {
     let newActiveFilters = { ...customFilters };
     for (const filterName in newActiveFilters) {
       newActiveFilters[filterName] = false;
@@ -103,35 +152,19 @@ const FindRecipeApp = () => {
     );
   };
 
-  useEffect(() => {
-    setFilteredRecipes(
-      allRecipes.current.filter(
-        (recipe) =>
-          checkRecipeCategoryFilter(recipe.category, categoryFilter) &&
-          checkRecipeNameFilter(recipe.name, nameFilter) &&
-          checkRecipeCustomFilters(recipe.tags, customFilters) &&
-          checkRecipeIngredientsFilters(recipe.ingredients, ingredientsFilters)
-      )
-    );
-  }, [categoryFilter, customFilters, nameFilter, ingredientsFilters]);
-
-  return (
-    <div className='recipe-finder-app'>
-      <Sidebar
-        activeCategory={categoryFilter}
-        setActiveCategory={setCategoryFilter}
-        filters={filters}
-        activeFilters={customFilters}
-        toggleFilter={toggleFilter}
-        resetFilters={resetFilters}
-        setNameFilter={setNameFilter}
-        ingredientsFilter={ingredientsFilters}
-        addIngredientsFilter={addIngredientsFilter}
-        deleteIngredientsFilter={deleteIngredientsFilter}
-      />
-      <RecipesSection isLoading={isLoading} recipes={filteredRecipes} />
-    </div>
-  );
+  return {
+    isLoading,
+    filteredRecipes,
+    categoryFilter,
+    customFilters,
+    ingredientsFilters,
+    setCategoryFilter,
+    setNameFilter,
+    toggleCustomFilter,
+    resetCustomFilters,
+    addIngredientsFilter,
+    deleteIngredientsFilter,
+  };
 };
 
 export default FindRecipeApp;
