@@ -29,6 +29,10 @@ function isRecipeApplicable(
   return true;
 }
 
+const checkRecipeNameFilter = (recipeName, nameFilter) => {
+  return recipeName.toLowerCase().includes(nameFilter);
+};
+
 const recipesURL = process.env.API_URL;
 
 const FindRecipeApp = () => {
@@ -98,7 +102,7 @@ const FindRecipeApp = () => {
       allRecipes.current.filter(
         (recipe) =>
           (activeCategory === 'all' || recipe.category === activeCategory) &&
-          recipe.name.toLowerCase().includes(nameFilter) &&
+          checkRecipeNameFilter(recipe.name, nameFilter) &&
           isRecipeApplicable(
             recipe.tags,
             customFilters,
