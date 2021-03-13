@@ -14,6 +14,14 @@ const Sidebar = () => {
     setOpenedModal('none');
   };
 
+  const openCategoriesModal = () => {
+    setOpenedModal('recipe-categories-modal');
+  };
+
+  const openFiltersModal = () => {
+    setOpenedModal('filters-modal');
+  };
+
   useEffect(() => {
     if (openedModal !== 'none') {
       document.body.style.overflow = 'hidden';
@@ -31,13 +39,16 @@ const Sidebar = () => {
   return (
     <section className='sidebar recipe-finder-app__sidebar'>
       <SearchBar />
-      <FiltersBar setOpenedModal={setOpenedModal} />
+      <FiltersBar
+        openCategoriesModal={openCategoriesModal}
+        openFiltersModal={openFiltersModal}
+      />
       <ModalCategories
         isOpen={openedModal === 'recipe-categories-modal'}
         closeModal={closeModal}
       />
       <ModalFilters
-        isOpen={openedModal === 'add-filters-modal'}
+        isOpen={openedModal === 'filters-modal'}
         closeModal={closeModal}
       />
     </section>
