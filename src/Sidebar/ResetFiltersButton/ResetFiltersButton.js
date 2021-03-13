@@ -4,11 +4,20 @@ import ResetFiltersIcon from 'Assets/icon-refresh.svg';
 import { useGlobalContext } from 'GlobalContext';
 
 const ResetFiltersButton = () => {
-  const { resetCustomFilters } = useGlobalContext();
+  const {
+    resetCustomFilters,
+    deleteAllIngredientsFilters,
+  } = useGlobalContext();
 
   return (
     <div className='reset-filters-container filters-bar__item'>
-      <button className='reset-filters-btn btn' onClick={resetCustomFilters}>
+      <button
+        className='reset-filters-btn btn'
+        onClick={() => {
+          resetCustomFilters();
+          deleteAllIngredientsFilters();
+        }}
+      >
         <img
           src={ResetFiltersIcon}
           className='reset-filters-btn__img'

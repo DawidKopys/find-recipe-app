@@ -119,6 +119,10 @@ const AppProvider = ({ children }) => {
     dispatch({ type: 'DELETE_INGREDIENTS_FILTER', payload: ingredient });
   };
 
+  const deleteAllIngredientsFilters = () => {
+    dispatch({ type: 'DELETE_ALL_INGREDIENTS_FILTERS' });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -129,6 +133,7 @@ const AppProvider = ({ children }) => {
         resetCustomFilters,
         addIngredientsFilter,
         deleteIngredientsFilter,
+        deleteAllIngredientsFilters,
       }}
     >
       {children}

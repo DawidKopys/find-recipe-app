@@ -66,6 +66,13 @@ export const reducer = (state, action) => {
       ),
     };
     return newState;
+  }
+  if (action.type === 'DELETE_ALL_INGREDIENTS_FILTERS') {
+    const newState = {
+      ...state,
+      ingredientsFilters: [],
+    };
+    return newState;
   } else {
     console.log('Unhandled action type:', action.type);
     return { ...state };
