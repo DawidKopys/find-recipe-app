@@ -2,13 +2,11 @@ import React from 'react';
 import './ModalCategories.css';
 import '../Modals.css';
 import categories from '../../categories';
+import { useGlobalContext } from 'GlobalContext';
 
-const ModalCategories = ({
-  isOpen,
-  closeModal,
-  activeCategory,
-  setActiveCategory,
-}) => {
+const ModalCategories = ({ isOpen, closeModal }) => {
+  const { categoryFilter, setCategoryFilter } = useGlobalContext();
+
   return (
     <section className={`modal${isOpen ? ' modal--open' : ''}`}>
       <div className='modal-content modal__container'>
@@ -19,11 +17,11 @@ const ModalCategories = ({
             <li className='modal-content__list-item' key={category.id}>
               <button
                 className={`modal-content__btn modal-content__btn--type--radio ${
-                  activeCategory === category.categoryName
+                  categoryFilter === category.categoryName
                     ? 'modal-content__btn--checked'
                     : ''
                 } btn`}
-                onClick={() => setActiveCategory(category.categoryName)}
+                onClick={() => setCategoryFilter(category.categoryName)}
               >
                 {category.categoryName}
               </button>

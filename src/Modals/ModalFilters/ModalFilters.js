@@ -3,6 +3,8 @@ import './ModalFilters.css';
 import '../Modals.css';
 import Combobox from 'react-widgets/lib/Combobox';
 import './Combobox.scss';
+import filters from './filters';
+import { useGlobalContext } from 'GlobalContext';
 
 const ingredients = [
   'apple',
@@ -62,18 +64,16 @@ const ingredients = [
   'yoghurt',
 ];
 
-const ModalFilters = ({
-  isOpen,
-  closeModal,
-  filters,
-  activeFilters,
-  toggleFilter,
-  ingredientsFilter,
-  addIngredientsFilter,
-  deleteIngredientsFilter,
-}) => {
+const ModalFilters = ({ isOpen, closeModal }) => {
   const afterSelect = useRef(false);
   const [addIngredientsInput, setAddIngredientsInput] = useState('');
+  const {
+    customFilters,
+    toggleCustomFilter,
+    ingredientsFilters,
+    addIngredientsFilter,
+    deleteIngredientsFilter,
+  } = useGlobalContext();
 
   return (
     <section className={`modal${isOpen ? ' modal--open' : ''}`}>
@@ -85,11 +85,11 @@ const ModalFilters = ({
             <li className='modal-content__list-item' key={filter.id}>
               <button
                 className={`modal-content__btn modal-content__btn--type--checkbox ${
-                  activeFilters[filter.filterName] === true
+                  customFilters[filter.filterName] === true
                     ? 'modal-content__btn--checked'
                     : ''
                 } btn`}
-                onClick={() => toggleFilter(filter.filterName)}
+                onClick={() => toggleCustomFilter(filter.filterName)}
               >
                 {filter.filterName}
               </button>
@@ -104,7 +104,7 @@ const ModalFilters = ({
             suggest={true}
             data={ingredients.filter((currentIngredient) => {
               /* Dont include already active ingredient filters in the options list */
-              const arrayIngredientsFilter = ingredientsFilter.map(
+              const arrayIngredientsFilter = ingredientsFilters.map(
                 (ingredientObj) => ingredientObj.ingredientName
               );
               return !arrayIngredientsFilter.includes(currentIngredient);
@@ -126,7 +126,7 @@ const ModalFilters = ({
           />
         </div>
         <div className='ingredients-list modal-content__ingredients-list'>
-          {ingredientsFilter.map((ingredient) => (
+          {ingredientsFilters.map((ingredient) => (
             <button
               key={ingredient.id}
               title='Delete'

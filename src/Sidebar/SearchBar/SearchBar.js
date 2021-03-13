@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './SearchBar.css';
+import { useGlobalContext } from 'GlobalContext';
 
-const SearchBar = ({ setNameFilter }) => {
+const SearchBar = () => {
+  const { setNameFilter } = useGlobalContext();
   const [userInput, setUserInput] = useState('');
 
   useEffect(() => {

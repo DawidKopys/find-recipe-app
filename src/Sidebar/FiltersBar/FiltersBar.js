@@ -3,28 +3,26 @@ import ChooseCategoryButton from '../ChooseCategoryButton/ChooseCategoryButton';
 import AddFiltersButton from '../AddFiltersButton/AddFiltersButton';
 import ResetFiltersButton from '../ResetFiltersButton/ResetFiltersButton';
 import './FiltersBar.css';
+import { useGlobalContext } from 'GlobalContext';
 
-const FiltersBar = ({
-  activeCategory,
-  activeFilters,
-  setOpenedModal,
-  resetFilters,
-}) => {
+const FiltersBar = ({ setOpenedModal }) => {
+  const { customFilters } = useGlobalContext();
+
   const getNumberOfActiveFilters = () => {
-    const getOccurences = ({ array, value }) =>
-      array.reduce(
+    const getOccurences = ({ array, value }) => {
+      return array.reduce(
         (occurences, currentValue) =>
           currentValue === value ? occurences + 1 : occurences,
         0
       );
+    };
 
-    return getOccurences({ array: Object.values(activeFilters), value: true });
+    return getOccurences({ array: Object.values(customFilters), value: true });
   };
 
   return (
     <section className='filters-bar sidebar__filters-bar'>
       <ChooseCategoryButton
-        activeCategory={activeCategory}
         onClick={() => {
           setOpenedModal('recipe-categories-modal');
         }}
@@ -35,9 +33,7 @@ const FiltersBar = ({
           setOpenedModal('add-filters-modal');
         }}
       />
-      {getNumberOfActiveFilters() !== 0 && (
-        <ResetFiltersButton resetFilters={resetFilters} />
-      )}
+      {getNumberOfActiveFilters() !== 0 && <ResetFiltersButton />}
     </section>
   );
 };

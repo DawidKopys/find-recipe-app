@@ -6,18 +6,7 @@ import ModalCategories from '../Modals/ModalCategories/ModalCategories';
 import ModalFilters from '../Modals/ModalFilters/ModalFilters';
 import { useWindowResize } from '../useWindowResize';
 
-const Sidebar = ({
-  activeCategory,
-  setActiveCategory,
-  filters,
-  activeFilters,
-  toggleFilter,
-  setNameFilter,
-  resetFilters,
-  ingredientsFilter,
-  addIngredientsFilter,
-  deleteIngredientsFilter,
-}) => {
+const Sidebar = () => {
   const [openedModal, setOpenedModal] = useState('none');
   const { windowWidth } = useWindowResize();
 
@@ -41,28 +30,15 @@ const Sidebar = ({
 
   return (
     <section className='sidebar recipe-finder-app__sidebar'>
-      <SearchBar setNameFilter={setNameFilter} />
-      <FiltersBar
-        activeCategory={activeCategory}
-        activeFilters={activeFilters}
-        setOpenedModal={setOpenedModal}
-        resetFilters={resetFilters}
-      />
+      <SearchBar />
+      <FiltersBar setOpenedModal={setOpenedModal} />
       <ModalCategories
         isOpen={openedModal === 'recipe-categories-modal'}
         closeModal={closeModal}
-        activeCategory={activeCategory}
-        setActiveCategory={setActiveCategory}
       />
       <ModalFilters
         isOpen={openedModal === 'add-filters-modal'}
         closeModal={closeModal}
-        activeFilters={activeFilters}
-        toggleFilter={toggleFilter}
-        filters={filters}
-        ingredientsFilter={ingredientsFilter}
-        addIngredientsFilter={addIngredientsFilter}
-        deleteIngredientsFilter={deleteIngredientsFilter}
       />
     </section>
   );

@@ -5,25 +5,27 @@ import LoadingAlert from './LoadingAlert/LoadingAlert';
 import RecipesListPagination from './RecipesList/RecipesListPagination';
 import ScrollToTopButton from './ScrollToTopButton/ScrollToTopButton';
 import { useWindowResize } from '../useWindowResize';
+import { useGlobalContext } from 'GlobalContext';
 
-const RecipesSection = ({ isLoading, recipes }) => {
+const RecipesSection = () => {
+  const { isLoading, filteredRecipes } = useGlobalContext();
   const { windowWidth } = useWindowResize();
 
   if (isLoading) {
     return <LoadingAlert />;
   }
-  if (recipes.length === 0) {
+  if (filteredRecipes.length === 0) {
     return <EmptyResultsAlert />;
   }
   if (windowWidth < 800) {
     return (
       <>
-        <RecipesList recipes={recipes} />
+        <RecipesList recipes={filteredRecipes} />
         <ScrollToTopButton />
       </>
     );
   }
-  return <RecipesListPagination recipes={recipes} />;
+  return <RecipesListPagination recipes={filteredRecipes} />;
 };
 
 export default RecipesSection;
