@@ -66,7 +66,7 @@ const ingredients = [
 
 const ModalFilters = ({ isOpen, closeModal }) => {
   const afterSelect = useRef(false);
-  const [addIngredientsInput, setAddIngredientsInput] = useState('');
+  const [userInput, setUserInput] = useState('');
   const {
     customFilters,
     toggleCustomFilter,
@@ -109,16 +109,16 @@ const ModalFilters = ({ isOpen, closeModal }) => {
               );
               return !arrayIngredientsFilter.includes(currentIngredient);
             })}
-            value={addIngredientsInput}
+            value={userInput}
             onChange={(value) => {
               if (afterSelect.current === false) {
-                setAddIngredientsInput(value);
+                setUserInput(value);
               } else {
                 afterSelect.current = false;
               }
             }}
             onSelect={(item) => {
-              setAddIngredientsInput('');
+              setUserInput('');
               addIngredientsFilter(item);
               afterSelect.current = true;
             }}
