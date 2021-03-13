@@ -5,10 +5,12 @@ import { useGlobalContext } from 'GlobalContext';
 const SearchBar = () => {
   const { setNameFilter } = useGlobalContext();
   const [userInput, setUserInput] = useState('');
+  const [showClearButton, setShowClearButton] = useState(false);
 
   useEffect(() => {
     const debounceTimerId = setTimeout(() => {
       setNameFilter(userInput.toLocaleLowerCase());
+      setShowClearButton(userInput.length > 0);
     }, 500);
     return () => {
       clearTimeout(debounceTimerId);
@@ -29,6 +31,16 @@ const SearchBar = () => {
         value={userInput}
         onChange={(e) => {
           setUserInput(e.target.value);
+        }}
+      />
+      <button
+        disabled={!showClearButton}
+        className={`search-bar__btn-clear-input${
+          showClearButton ? ' search-bar__btn-clear-input--visible btn' : ''
+        }`}
+        onClick={() => {
+          setUserInput('');
+          setShowClearButton(false);
         }}
       />
     </section>

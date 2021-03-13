@@ -14,6 +14,8 @@
   border: 1px solid #828282;
   border-radius: 22px;
   box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+  position: relative;
+  z-index: 2;
 }
 
 .search-bar::after {
@@ -28,6 +30,29 @@
   position: absolute;
   top: 11px;
   left: 14px;
+  z-index: 3;
+}
+
+.search-bar__btn-clear-input {
+  position: absolute;
+  right: 9px;
+  top: 11px;
+  width: 23px;
+  height: 22px;
+  background-image: url('Assets/icon-cross-14px.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.search-bar__btn-clear-input:hover {
+  background-color: var(--color-grey-2);
+  background-image: url('Assets/icon-cross-14px-hover-dark.svg');
+}
+
+.search-bar__btn-clear-input--visible {
+  z-index: 3;
 }
 
 /* typography */
