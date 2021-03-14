@@ -3,7 +3,8 @@ import filters from './Modals/ModalFilters/filters';
 import { reducer } from './reducer';
 import 'regenerator-runtime/runtime';
 
-const recipesURL = process.env.API_URL;
+const recipesURL =
+  'https://api.jsonbin.io/v3/b/604a7b737ffeba41c07679e9/latest';
 const AppContext = React.createContext();
 
 const initialState = {
@@ -24,11 +25,7 @@ const AppProvider = ({ children }) => {
 
   const getRecipes = async () => {
     try {
-      const response = await fetch(recipesURL, {
-        headers: {
-          'X-Master-Key': process.env.API_KEY,
-        },
-      });
+      const response = await fetch(recipesURL);
       const responseJSON = await response.json();
       const recipes = responseJSON.record;
       setAllRecipes(recipes);
