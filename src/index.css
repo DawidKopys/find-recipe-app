@@ -60,6 +60,13 @@ a {
 
 @font-face {
   font-family: 'Poppins';
+  src: url('Assets/fonts/Poppins-Medium.otf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
   src: url('Assets/fonts/Poppins-Bold.otf');
   font-weight: 700;
   font-style: normal;
