@@ -2,7 +2,11 @@
   /* main app layout */
   .recipe-finder-app {
     display: grid;
+    grid-template-areas:
+      'navbar navbar'
+      'sidebar main';
     grid-template-columns: 320px 1fr;
+    grid-template-rows: 70px 1fr;
     max-width: 1400px;
     min-width: 800px;
     width: 80%;

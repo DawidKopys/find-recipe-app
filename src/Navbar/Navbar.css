@@ -1,0 +1,58 @@
+@media screen and (min-width: 800px) {
+  .recipe-finder-app__navbar {
+    grid-area: navbar;
+  }
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__logo {
+  margin-left: 20px;
+}
+
+.navbar__links-list {
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+}
+
+.navbar__list-item {
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar__link {
+  pointer-events: none; /* temp */
+  color: black;
+}
+
+.navbar__link--sign-in,
+.navbar__link--sign-up {
+  padding: 9px 11px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.navbar__link--sign-in {
+  border: 2px solid var(--color-purple);
+  color: var(--color-purple);
+}
+
+.navbar__link--sign-up {
+  border: 2px solid var(--color-purple);
+  background-color: var(--color-purple);
+  color: white;
+}
+
+/* Typography */
+.navbar__links-list {
+  font-family: 'Roboto';
+  font-size: 1.125rem;
+  font-weight: 700;
+}
