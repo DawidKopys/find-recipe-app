@@ -3,6 +3,25 @@ import filters from './Modals/ModalFilters/filters';
 import { reducer } from './reducer';
 import 'regenerator-runtime/runtime';
 
+const getLocalStorage = () => {
+  let recipesJSON = localStorage.getItem('recipes');
+  if (recipesJSON) {
+    try {
+      return JSON.parse(recipesJSON);
+    } catch (e) {
+      console.log(e);
+      console.log('Invalid JSON stored in the local storage.');
+      return [];
+    }
+  } else {
+    return [];
+  }
+};
+
+const setLocalStorage = (recipes) => {
+  localStorage.setItem('recipes', JSON.stringify(recipes));
+};
+
 const recipesURL =
   'https://api.jsonbin.io/v3/b/604a7b737ffeba41c07679e9/latest';
 const AppContext = React.createContext();
@@ -23,21 +42,38 @@ const AppProvider = ({ children }) => {
   const [allRecipes, setAllRecipes] = useState([]);
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const getRecipes = async () => {
+  useEffect(() => {
+    getRecipes();
+  }, []);
+
+  const getRecipes = () => {
+    const recipes = getLocalStorageRecipes();
+    if (recipes.length === 0) {
+      fetchRecipes();
+    }
+  };
+
+  const getLocalStorageRecipes = () => {
+    const recipes = getLocalStorage();
+    if (recipes.length !== 0) {
+      setAllRecipes(recipes);
+      dispatch({ type: 'SET_LOADED_SUCCESS' });
+    }
+    return recipes;
+  };
+
+  const fetchRecipes = async () => {
     try {
       const response = await fetch(recipesURL);
       const responseJSON = await response.json();
       const recipes = responseJSON.record;
       setAllRecipes(recipes);
+      setLocalStorage(recipes);
       dispatch({ type: 'SET_LOADED_SUCCESS' });
     } catch (error) {
       console.log('reject:', error);
     }
   };
-
-  useEffect(() => {
-    getRecipes();
-  }, []);
 
   useEffect(() => {
     const checkRecipeNameFilter = (recipeName) => {
