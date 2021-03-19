@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Logo from 'Assets/logo-reciply-purple-uppercase.svg';
 import BurgerMenu from 'Assets/icon-burger-menu-grey.svg';
 import './Navbar.css';
+import { useOnClickOutside } from '../useOnClickOutside';
 
 const Navbar = () => {
+  const sidebarRef = useRef();
+  useOnClickOutside(sidebarRef, () => setIsSidebarOpen(false));
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
@@ -31,6 +34,7 @@ const Navbar = () => {
         className={`navbar__links-list${
           isSidebarOpen ? ' navbar__links-list--open' : ''
         }`}
+        ref={sidebarRef}
       >
         <li className='navbar__list-item'>
           <button
