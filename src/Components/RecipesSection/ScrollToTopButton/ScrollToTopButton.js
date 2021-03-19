@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ScrollToTopButton.css';
-import { useWindowScroll } from '../../useWindowScroll';
+import { useWindowScroll } from 'CustomHooks/useWindowScroll';
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);

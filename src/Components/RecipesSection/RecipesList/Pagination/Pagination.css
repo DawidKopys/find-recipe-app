@@ -89,9 +89,3 @@
 .pagination__list-item--active:hover .pagination__link--next {
   background-image: url('Assets/icon-arrow-thin-big-w15-right-purple.svg');
 }
-
-@media screen and (min-width: 800px) {
-  .recipe-finder-app__recipes-container {
-    margin-top: 25px;
-  }
-}

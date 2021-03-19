@@ -4,7 +4,7 @@ import EmptyResultsAlert from './EmptyResultsAlert/EmptyResultsAlert';
 import LoadingAlert from './LoadingAlert/LoadingAlert';
 import RecipesListPagination from './RecipesList/RecipesListPagination';
 import ScrollToTopButton from './ScrollToTopButton/ScrollToTopButton';
-import { useWindowResize } from '../useWindowResize';
+import { useWindowResize } from 'CustomHooks/useWindowResize';
 import { useGlobalContext } from 'GlobalContext';
 
 const RecipesSection = () => {

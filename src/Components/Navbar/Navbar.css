@@ -1,0 +1,159 @@
+.recipe-finder-app__navbar {
+  margin: 0 25px;
+  margin-top: 10px;
+  height: 45px;
+}
+
+/* Navbar main layout */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Navbar overlay */
+.navbar::before {
+  display: none;
+  content: '';
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.navbar--with-overlay::before {
+  display: block;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Links sidebar */
+.navbar__links-list {
+  padding: 20px;
+  padding-top: 60px;
+  z-index: 4;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 70vw;
+  height: 100vh;
+  background-color: var(--color-grey-1);
+  transform: translateX(100%);
+  transition: none;
+}
+
+.navbar__links-list--open {
+  transform: translateX(0);
+  transition: transform 0.2s ease-in;
+}
+
+.navbar__list-item {
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar__link {
+  color: black;
+}
+
+/* Logo */
+.navbar__list-item--logo {
+  margin-left: 20px;
+  margin-right: auto;
+}
+
+/* Close Sidebar Button */
+.navbar__btn-close-sidebar {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 25px;
+  right: 25px;
+  background-image: url('Assets/icon-cross-grey.svg');
+}
+
+/* Sign In and Sign Out Buttons */
+.navbar__list-item--sign-in,
+.navbar__list-item--sign-up {
+  margin-top: 15px;
+}
+
+.navbar__link--sign-in,
+.navbar__link--sign-up {
+  width: 100%;
+  padding: 9px 0;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.navbar__link--sign-in {
+  border: 2px solid var(--color-purple);
+  color: var(--color-purple);
+  background-color: white;
+}
+
+.navbar__link--sign-up {
+  border: 2px solid var(--color-purple);
+  background-color: var(--color-purple);
+  color: white;
+}
+
+/* Typography */
+.navbar__links-list {
+  font-family: 'Roboto';
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.navbar__link {
+  text-align: center;
+}
+
+@media screen and (min-width: 800px) {
+  .recipe-finder-app__navbar {
+    height: unset;
+    grid-area: navbar;
+    margin-right: 45px;
+  }
+
+  /* Links section */
+  .navbar__links-list {
+    position: unset;
+    transform: unset;
+    transition: none;
+    padding: 0;
+    width: unset;
+    height: unset;
+    background-color: unset;
+    display: flex;
+    align-self: stretch;
+    align-items: stretch;
+    justify-content: flex-end;
+  }
+
+  .navbar__list-item {
+    margin-left: 30px;
+  }
+
+  /* Sign In and Sign Out Buttons */
+  .navbar__list-item--sign-in,
+  .navbar__list-item--sign-up {
+    margin-top: 0;
+  }
+
+  .navbar__link--sign-in,
+  .navbar__link--sign-up {
+    width: 100px;
+  }
+
+  /* Close and Open Burger Menu Button */
+  .navbar__btn-open-sidebar,
+  .navbar__btn-close-sidebar {
+    display: none;
+  }
+}

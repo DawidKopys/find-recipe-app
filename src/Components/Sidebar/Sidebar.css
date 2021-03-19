@@ -1,0 +1,4 @@
+.recipe-finder-app__sidebar {
+  margin-top: 10px;
+  grid-area: sidebar;
+}

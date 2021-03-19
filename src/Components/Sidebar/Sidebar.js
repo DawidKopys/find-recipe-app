@@ -4,7 +4,7 @@ import SearchBar from './SearchBar/SearchBar';
 import FiltersBar from './FiltersBar/FiltersBar';
 import ModalCategories from '../Modals/ModalCategories/ModalCategories';
 import ModalFilters from '../Modals/ModalFilters/ModalFilters';
-import { useWindowResize } from '../useWindowResize';
+import { useWindowResize } from 'CustomHooks/useWindowResize';
 
 const Sidebar = () => {
   const [openedModal, setOpenedModal] = useState('none');

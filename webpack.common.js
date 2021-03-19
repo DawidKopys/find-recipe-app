@@ -52,6 +52,8 @@ module.exports = {
       react: path.join(__dirname, 'node_modules', 'react'),
       Assets: path.resolve(__dirname, 'src/assets/'),
       GlobalContext: path.resolve(__dirname, 'src/context.js'),
+      CustomHooks: path.resolve(__dirname, 'src/custom-hooks/'),
+      Components: path.resolve(__dirname, 'src/components/'),
     },
   },
   optimization: {

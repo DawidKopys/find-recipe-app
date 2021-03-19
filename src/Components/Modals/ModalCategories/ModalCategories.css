@@ -1,5 +1,5 @@
 .modal-content__btn--type--radio.modal-content__btn--checked {
-  background-image: url('../../assets/icon-checkbox-black-checked.svg');
+  background-image: url('Assets/icon-checkbox-black-checked.svg');
   color: var(--color-purple);
   background-color: var(--color-grey-2);
 }
