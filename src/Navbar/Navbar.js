@@ -7,7 +7,11 @@ const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <nav className='navbar recipe-finder-app__navbar'>
+    <nav
+      className={`navbar${
+        isSidebarOpen ? ' navbar--with-overlay' : ''
+      } recipe-finder-app__navbar`}
+    >
       <img src={Logo} alt='Reciply Logo' className='navbar__logo-img' />
       <button
         className='navbar__btn-open-sidebar btn'
