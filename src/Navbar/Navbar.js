@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Logo from 'Assets/logo-reciply-purple-uppercase.svg';
 import BurgerMenu from 'Assets/icon-burger-menu-grey.svg';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isSidebarOpen]);
 
   return (
     <nav

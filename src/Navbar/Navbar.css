@@ -4,13 +4,14 @@
   height: 45px;
 }
 
-/* Navbar layout */
+/* Navbar main layout */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+/* Navbar overlay */
 .navbar::before {
   display: none;
   content: '';
@@ -29,23 +30,7 @@
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-/* .navbar__overlay {
-  display: none;
-  z-index: -1;
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0);
-}
-
-.navbar__overlay--open {
-  display: block;
-  z-index: 3;
-  background-color: rgba(0, 0, 0, 0.2);
-} */
-
+/* Links sidebar */
 .navbar__links-list {
   padding: 20px;
   padding-top: 60px;
