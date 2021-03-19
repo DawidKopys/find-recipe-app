@@ -1,0 +1,18 @@
+.recipe-finder-app__add-recipe {
+  margin: 20px auto;
+  grid-area: main;
+}
+
+.add-recipe {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--color-grey-3);
+}
+
+@media screen and (min-width: 800px) {
+  .add-recipe {
+    font-size: 3rem;
+  }
+}

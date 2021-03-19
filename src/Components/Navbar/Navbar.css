@@ -58,7 +58,6 @@
 }
 
 .navbar__link {
-  pointer-events: none; /* temp */
   color: black;
 }
 

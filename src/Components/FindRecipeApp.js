@@ -1,15 +1,24 @@
 import React from 'react';
 import './FindRecipeApp.css';
-import Navbar from './Navbar/Navbar';
-import Sidebar from './Sidebar/Sidebar';
-import RecipesSection from './RecipesSection/RecipesSection';
+import Navbar from 'Components/Navbar/Navbar';
+import FindRecipe from 'Components/FindRecipe/FindRecipe';
+import AddRecipe from 'Components/AddRecipe/AddRecipe';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const FindRecipeApp = () => {
   return (
     <div className='recipe-finder-app'>
-      <Navbar />
-      <Sidebar />
-      <RecipesSection />
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path='/'>
+            <FindRecipe />
+          </Route>
+          <Route path='/add-recipe'>
+            <AddRecipe />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 };

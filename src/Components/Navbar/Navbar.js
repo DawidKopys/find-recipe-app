@@ -3,6 +3,7 @@ import Logo from 'Assets/logo-reciply-purple-uppercase.svg';
 import BurgerMenu from 'Assets/icon-burger-menu-grey.svg';
 import './Navbar.css';
 import { useOnClickOutside } from 'CustomHooks/useOnClickOutside';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const sidebarRef = useRef();
@@ -43,24 +44,24 @@ const Navbar = () => {
           />
         </li>
         <li className='navbar__list-item'>
-          <a href='' className='navbar__link'>
+          <Link to='/add-recipe' className='navbar__link'>
             Add Recipe
-          </a>
+          </Link>
         </li>
         <li className='navbar__list-item'>
-          <a href='' className='navbar__link'>
+          <Link to='/' className='navbar__link'>
             Find Recipe
-          </a>
+          </Link>
         </li>
         <li className='navbar__list-item navbar__list-item--sign-in'>
-          <a href='' className='navbar__link navbar__link--sign-in'>
+          <Link to='/' className='navbar__link navbar__link--sign-in'>
             Sign In
-          </a>
+          </Link>
         </li>
         <li className='navbar__list-item navbar__list-item--sign-up'>
-          <a href='' className='navbar__link navbar__link--sign-up'>
+          <Link to='/' className='navbar__link navbar__link--sign-up'>
             Sign Up
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
