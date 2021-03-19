@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Logo from 'Assets/logo-reciply-purple-uppercase.svg';
 import BurgerMenu from 'Assets/icon-burger-menu-grey.svg';
 import './Navbar.css';
-import { useOnClickOutside } from '../useOnClickOutside';
+import { useOnClickOutside } from 'CustomHooks/useOnClickOutside';
 
 const Navbar = () => {
   const sidebarRef = useRef();
