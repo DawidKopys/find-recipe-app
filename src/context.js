@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useReducer, useContext } from 'react';
-import filters from './Modals/ModalFilters/filters';
+import filters from 'Components/Modals/ModalFilters/filters';
 import { reducer } from './reducer';
 import 'regenerator-runtime/runtime';
 

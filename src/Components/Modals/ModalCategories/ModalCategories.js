@@ -1,7 +1,7 @@
 import React from 'react';
 import './ModalCategories.css';
 import '../Modals.css';
-import categories from '../../categories';
+import categories from '../../../categories';
 import { useGlobalContext } from 'GlobalContext';
 
 const ModalCategories = ({ isOpen, closeModal }) => {

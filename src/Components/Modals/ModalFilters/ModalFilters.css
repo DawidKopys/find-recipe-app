@@ -1,5 +1,5 @@
 .modal-content__btn--type--checkbox.modal-content__btn--checked {
-  background-image: url('../../assets/icon-checkbox-black-ticked.svg');
+  background-image: url('Assets/icon-checkbox-black-ticked.svg');
   color: var(--color-purple);
 }
 
