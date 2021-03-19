@@ -18,20 +18,20 @@ const RecipeCard = ({
           <p className='recipe-macro__title'>Macro per serving:</p>
           <div className='macro-details recipe-macro__macro-details'>
             <div className='macro-details__item'>
-              <h4 className='macro-details__macro-name'>{calories}</h4>
-              <p className='macro-details__macro-value'>kcal</p>
+              <h4 className='macro-details__macro-value'>{calories}</h4>
+              <p className='macro-details__macro-name'>kcal</p>
             </div>
             <div className='macro-details__item'>
-              <h4 className='macro-details__macro-name'>{protein}</h4>
-              <p className='macro-details__macro-value'>protein</p>
+              <h4 className='macro-details__macro-value'>{protein}</h4>
+              <p className='macro-details__macro-name'>protein</p>
             </div>
             <div className='macro-details__item'>
-              <h4 className='macro-details__macro-name'>{carbs}</h4>
-              <p className='macro-details__macro-value'>carbs</p>
+              <h4 className='macro-details__macro-value'>{carbs}</h4>
+              <p className='macro-details__macro-name'>carbs</p>
             </div>
             <div className='macro-details__item'>
-              <h4 className='macro-details__macro-name'>{fats}</h4>
-              <p className='macro-details__macro-value'>fats</p>
+              <h4 className='macro-details__macro-value'>{fats}</h4>
+              <p className='macro-details__macro-name'>fats</p>
             </div>
           </div>
         </div>

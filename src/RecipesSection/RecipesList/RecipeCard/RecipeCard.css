@@ -46,8 +46,8 @@
 }
 
 .recipe-info__recipe-name {
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .recipe-macro__title {
@@ -56,12 +56,13 @@
   color: var(--color-grey-3);
 }
 
-.macro-details__macro-name {
+.macro-details__macro-value {
   text-align: center;
+  font-size: 0.9rem;
   font-weight: 400;
 }
 
-.macro-details__macro-value {
+.macro-details__macro-name {
   text-align: center;
   font-weight: 100;
   font-size: 0.8rem;
@@ -134,5 +135,9 @@
   .recipe-info__recipe-name {
     font-weight: 400;
     text-align: center;
+  }
+
+  .macro-details__macro-value {
+    font-size: 1rem;
   }
 }
