@@ -19,16 +19,10 @@ cd find-recipe-app
 npm install
 ```
 
-After all dependencies are installed, either run the development server:
+After all dependencies are installed, run the development server:
 
 ```
 npm start
-```
-
-... or build the project and open dist/index.html locally in your browser.:
-
-```
-npm run build
 ```
 
 **Be sure to check out the app both on desktop and mobile!**
@@ -43,6 +37,7 @@ React:
 - Data fetching
 - Basic pagination
 - 3rd party libraries usage ([react-widgets](https://jquense.github.io/react-widgets/))
+- Routing implementation with React Router
 
 Project tooling and configuration:
 
