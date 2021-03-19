@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from 'Assets/logo-reciply-purple.svg';
+import Logo from 'Assets/logo-reciply-purple-uppercase.svg';
 import './Navbar.css';
 
 const Navbar = () => {
