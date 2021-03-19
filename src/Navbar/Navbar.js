@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from 'Assets/logo-reciply-purple-uppercase.svg';
 import BurgerMenu from 'Assets/icon-burger-menu-grey.svg';
 import './Navbar.css';
 
 const Navbar = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
     <nav className='navbar recipe-finder-app__navbar'>
       <img src={Logo} alt='Reciply Logo' className='navbar__logo-img' />
-      <button className='navbar--burger-menu'>
+      <button
+        className='navbar__btn-open-sidebar btn'
+        onClick={() => setIsSidebarOpen(true)}
+      >
         <img src={BurgerMenu} alt='Show Menu' />
       </button>
-      <ul className='navbar__links-list'>
+      <ul
+        className={`navbar__links-list${
+          isSidebarOpen ? ' navbar__links-list--open' : ''
+        }`}
+      >
+        <li className='navbar__list-item'>
+          <button
+            className='navbar__btn-close-sidebar btn'
+            onClick={() => setIsSidebarOpen(false)}
+          />
+        </li>
         <li className='navbar__list-item'>
           <a href='' className='navbar__link'>
             Add Recipe
@@ -21,12 +36,12 @@ const Navbar = () => {
             Find Recipe
           </a>
         </li>
-        <li className='navbar__list-item'>
+        <li className='navbar__list-item navbar__list-item--sign-in'>
           <a href='' className='navbar__link navbar__link--sign-in'>
             Sign In
           </a>
         </li>
-        <li className='navbar__list-item'>
+        <li className='navbar__list-item navbar__list-item--sign-up'>
           <a href='' className='navbar__link navbar__link--sign-up'>
             Sign Up
           </a>

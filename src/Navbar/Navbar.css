@@ -12,7 +12,27 @@
 }
 
 .navbar__links-list {
-  display: none;
+  padding: 20px;
+  padding-top: 60px;
+  z-index: 4;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 70vw;
+  height: 100vh;
+  background-color: var(--color-grey-1);
+  transform: translateX(100%);
+  transition: transform 0.2s ease-in;
+}
+.navbar__links-list--open {
+  transform: translateX(0);
+}
+
+.navbar__list-item {
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar__link {
@@ -26,10 +46,26 @@
   margin-right: auto;
 }
 
+/* Close Sidebar Button */
+.navbar__btn-close-sidebar {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 25px;
+  right: 25px;
+  background-image: url('Assets/icon-cross-grey.svg');
+}
+
 /* Sign In and Sign Out Buttons */
+.navbar__list-item--sign-in,
+.navbar__list-item--sign-up {
+  margin-top: 15px;
+}
+
 .navbar__link--sign-in,
 .navbar__link--sign-up {
-  padding: 9px 11px;
+  width: 100%;
+  padding: 9px 0;
   border-radius: 5px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
 }
@@ -37,6 +73,7 @@
 .navbar__link--sign-in {
   border: 2px solid var(--color-purple);
   color: var(--color-purple);
+  background-color: white;
 }
 
 .navbar__link--sign-up {
@@ -52,14 +89,26 @@
   font-weight: 700;
 }
 
+.navbar__link {
+  text-align: center;
+}
+
 @media screen and (min-width: 800px) {
   .recipe-finder-app__navbar {
     height: unset;
     grid-area: navbar;
+    margin-right: 45px;
   }
 
   /* Links section */
   .navbar__links-list {
+    position: unset;
+    transform: unset;
+    transition: unset;
+    padding: 0;
+    width: unset;
+    height: unset;
+    background-color: unset;
     display: flex;
     align-self: stretch;
     align-items: stretch;
@@ -68,12 +117,22 @@
 
   .navbar__list-item {
     margin-left: 30px;
-    display: flex;
-    align-items: center;
   }
 
-  /* Burger Menu Button */
-  .navbar--burger-menu {
+  /* Sign In and Sign Out Buttons */
+  .navbar__list-item--sign-in,
+  .navbar__list-item--sign-up {
+    margin-top: 0;
+  }
+
+  .navbar__link--sign-in,
+  .navbar__link--sign-up {
+    width: 100px;
+  }
+
+  /* Close and Open Burger Menu Button */
+  .navbar__btn-open-sidebar,
+  .navbar__btn-close-sidebar {
     display: none;
   }
 }
