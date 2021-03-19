@@ -42,11 +42,12 @@
   height: 100vh;
   background-color: var(--color-grey-1);
   transform: translateX(100%);
-  transition: transform 0.2s ease-in;
+  transition: none;
 }
 
 .navbar__links-list--open {
   transform: translateX(0);
+  transition: transform 0.2s ease-in;
 }
 
 .navbar__list-item {
@@ -125,7 +126,7 @@
   .navbar__links-list {
     position: unset;
     transform: unset;
-    transition: unset;
+    transition: none;
     padding: 0;
     width: unset;
     height: unset;
