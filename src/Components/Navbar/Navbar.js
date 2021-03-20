@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Logo from 'Assets/logo-reciply-purple-uppercase.svg';
 import BurgerMenu from 'Assets/icon-burger-menu-grey.svg';
 import './Navbar.css';
 import { useOnClickOutside } from 'CustomHooks/useOnClickOutside';
@@ -24,7 +23,9 @@ const Navbar = () => {
         isSidebarOpen ? ' navbar--with-overlay' : ''
       } recipe-finder-app__navbar`}
     >
-      <img src={Logo} alt='Reciply Logo' className='navbar__logo-img' />
+      <span className='reciply-logo'>
+        <span className='reciply-logo__first-letter'>R</span>eciply
+      </span>
       <button
         className='navbar__btn-open-sidebar btn'
         onClick={() => setIsSidebarOpen(true)}

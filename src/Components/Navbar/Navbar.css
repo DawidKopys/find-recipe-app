@@ -61,12 +61,6 @@
   color: black;
 }
 
-/* Logo */
-.navbar__list-item--logo {
-  margin-left: 20px;
-  margin-right: auto;
-}
-
 /* Close Sidebar Button */
 .navbar__btn-close-sidebar {
   position: absolute;
@@ -112,6 +106,22 @@
 
 .navbar__link {
   text-align: center;
+}
+
+/* Logo Typography */
+.reciply-logo {
+  font-family: 'Secular One';
+  font-size: 24px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.reciply-logo__first-letter {
+  font-family: 'Sansation';
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-purple);
+  text-transform: uppercase;
 }
 
 @media screen and (min-width: 800px) {
