@@ -1,9 +1,9 @@
-.recipe-finder-app__add-recipe {
+.recipe-finder-app__loader {
   margin: 20px auto;
   grid-area: sidebar / sidebar / main / main;
 }
 
-.add-recipe {
+.loader {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 1rem;
@@ -12,7 +12,7 @@
 }
 
 @media screen and (min-width: 800px) {
-  .add-recipe {
+  .loader {
     font-size: 3rem;
   }
 }

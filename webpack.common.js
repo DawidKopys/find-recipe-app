@@ -10,6 +10,7 @@ module.exports = {
   },
   output: {
     filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
@@ -44,7 +45,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html',
-      favicon: './src/assets/R-favicon.png',
+      favicon: './src/assets/R-favicon3.png',
     }),
     new Dotenv(),
   ],

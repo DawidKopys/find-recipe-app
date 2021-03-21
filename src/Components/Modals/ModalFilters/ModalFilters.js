@@ -1,10 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, Suspense } from 'react';
 import './ModalFilters.css';
 import '../Modals.css';
-import Combobox from 'react-widgets/lib/Combobox';
 import './Combobox.scss';
 import filters from './filters';
 import { useGlobalContext } from 'GlobalContext';
+import RenderLoader from 'Components/RenderLoader/RenderLoader';
+const Combobox = React.lazy(() => import('react-widgets/lib/Combobox'));
 
 const ingredients = [
   'apple',
@@ -99,31 +100,33 @@ const ModalFilters = ({ isOpen, closeModal }) => {
 
         <h2 className='modal-content__heading'>Filter by ingredients</h2>
         <div className='ingredients-input modal-content__ingredients-input'>
-          <Combobox
-            placeholder='Add ingredients'
-            suggest={true}
-            data={ingredients.filter((currentIngredient) => {
-              /* Dont include already active ingredient filters in the options list */
-              const arrayIngredientsFilter = ingredientsFilters.map(
-                (ingredientObj) => ingredientObj.ingredientName
-              );
-              return !arrayIngredientsFilter.includes(currentIngredient);
-            })}
-            value={userInput}
-            onChange={(value) => {
-              if (afterSelect.current === false) {
-                setUserInput(value);
-              } else {
-                afterSelect.current = false;
-              }
-            }}
-            onSelect={(item) => {
-              setUserInput('');
-              addIngredientsFilter(item);
-              afterSelect.current = true;
-            }}
-            filter='startsWith'
-          />
+          <Suspense fallback={RenderLoader({ style: { fontSize: '1rem' } })}>
+            <Combobox
+              placeholder='Add ingredients'
+              suggest={true}
+              data={ingredients.filter((currentIngredient) => {
+                /* Dont include already active ingredient filters in the options list */
+                const arrayIngredientsFilter = ingredientsFilters.map(
+                  (ingredientObj) => ingredientObj.ingredientName
+                );
+                return !arrayIngredientsFilter.includes(currentIngredient);
+              })}
+              value={userInput}
+              onChange={(value) => {
+                if (afterSelect.current === false) {
+                  setUserInput(value);
+                } else {
+                  afterSelect.current = false;
+                }
+              }}
+              onSelect={(item) => {
+                setUserInput('');
+                addIngredientsFilter(item);
+                afterSelect.current = true;
+              }}
+              filter='startsWith'
+            />
+          </Suspense>
         </div>
         <div className='ingredients-list modal-content__ingredients-list'>
           {ingredientsFilters.map((ingredient) => (

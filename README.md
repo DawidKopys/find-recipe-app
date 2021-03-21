@@ -37,7 +37,8 @@ React:
 - Data fetching
 - Basic pagination
 - 3rd party libraries usage ([react-widgets](https://jquense.github.io/react-widgets/))
-- Routing implementation with React Router
+- Routing with React Router
+- Lazy Loading (Routes and Components) in React
 
 Project tooling and configuration:
 
@@ -50,7 +51,7 @@ CSS:
 
 - BEM methodology
 - `width: 100vw;` pitfall (`width: 100%;` vs `width: 100vw;`)
-- Fluency with creating various layouts (Flexbox, CSS Grid)
+- Fluency in creating various layouts with Flexbox and CSS Grid
 - CSS pixels vs Hardware pixels
 - Basics of UI (don't use too many colors, consistent font(s) and font size)
 
