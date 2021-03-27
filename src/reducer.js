@@ -39,7 +39,7 @@ export const reducer = (state, action) => {
     }
     return newState;
   }
-  if (action.type === 'RESET_CUSTOM_FILTER') {
+  if (action.type === 'RESET_CUSTOM_FILTERS') {
     let newCustomFilters = { ...state.customFilters };
     for (const filterName in newCustomFilters) {
       newCustomFilters[filterName] = false;

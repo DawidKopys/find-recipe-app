@@ -141,7 +141,7 @@ const AppProvider = ({ children }) => {
   };
 
   const resetCustomFilters = () => {
-    dispatch({ type: 'RESET_CUSTOM_FILTER' });
+    dispatch({ type: 'RESET_CUSTOM_FILTERS' });
   };
 
   const addIngredientsFilter = (ingredient) => {
