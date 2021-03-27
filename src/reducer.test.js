@@ -228,6 +228,7 @@ describe('Reducer', () => {
   });
 
   test('should add ingredient filter', () => {
+    const realDateNow = Date.now.bind(global.Date);
     const dateNowStub = jest.fn(() => 1530518207007);
     global.Date.now = dateNowStub;
 
@@ -243,6 +244,8 @@ describe('Reducer', () => {
         { id: 1530518207007, ingredientName: newIngredient },
       ],
     });
+    expect(dateNowStub).toHaveBeenCalled();
+    global.Date.now = realDateNow;
   });
 
   test('should delete ingredient filter', () => {

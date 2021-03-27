@@ -46,6 +46,7 @@ Project tooling and configuration:
 - Webpack configuration for React applications
 - Babel integration with Webpack
 - Creating and managing basic project file structure
+- Unit testing with Jest
 
 CSS:
 
@@ -58,4 +59,5 @@ CSS:
 Other:
 
 - GitHub's readme.md writing and formatting syntax :)
+
   ...and more.
