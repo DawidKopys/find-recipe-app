@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar snapshot renders 1`] = `
+<nav
+  className="navbar recipe-finder-app__navbar"
+>
+  <span
+    className="reciply-logo"
+  >
+    <span
+      className="reciply-logo__first-letter"
+    >
+      R
+    </span>
+    eciply
+  </span>
+  <button
+    className="navbar__btn-open-sidebar btn"
+    onClick={[Function]}
+  >
+    <img
+      alt="Show Menu"
+      src="test-file-stub"
+    />
+  </button>
+  <ul
+    className="navbar__links-list"
+  >
+    <li
+      className="navbar__list-item"
+    >
+      <button
+        className="navbar__btn-close-sidebar btn"
+        onClick={[Function]}
+      />
+    </li>
+    <li
+      className="navbar__list-item"
+    >
+      <a
+        className="navbar__link"
+        href="/add-recipe"
+        onClick={[Function]}
+      >
+        Add Recipe
+      </a>
+    </li>
+    <li
+      className="navbar__list-item"
+    >
+      <a
+        className="navbar__link"
+        href="/"
+        onClick={[Function]}
+      >
+        Find Recipe
+      </a>
+    </li>
+    <li
+      className="navbar__list-item navbar__list-item--sign-in"
+    >
+      <a
+        className="navbar__link navbar__link--sign-in"
+        href="/"
+        onClick={[Function]}
+      >
+        Sign In
+      </a>
+    </li>
+    <li
+      className="navbar__list-item navbar__list-item--sign-up"
+    >
+      <a
+        className="navbar__link navbar__link--sign-up"
+        href="/"
+        onClick={[Function]}
+      >
+        Sign Up
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
