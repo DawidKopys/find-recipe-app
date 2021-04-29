@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import BurgerMenu from 'Assets/icon-burger-menu-grey.svg';
 import './Navbar.css';
 import { useOnClickOutside } from 'CustomHooks/useOnClickOutside';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const sidebarRef = useRef();
@@ -45,14 +45,24 @@ const Navbar = () => {
           />
         </li>
         <li className='navbar__list-item'>
-          <Link to='/add-recipe' className='navbar__link'>
+          <NavLink
+            to='/add-recipe'
+            exact
+            activeClassName='navbar__link--active'
+            className='navbar__link'
+          >
             Add Recipe
-          </Link>
+          </NavLink>
         </li>
         <li className='navbar__list-item'>
-          <Link to='/' className='navbar__link'>
+          <NavLink
+            to='/'
+            exact
+            activeClassName='navbar__link--active'
+            className='navbar__link'
+          >
             Find Recipe
-          </Link>
+          </NavLink>
         </li>
         <li className='navbar__list-item navbar__list-item--sign-in'>
           <Link to='/' className='navbar__link navbar__link--sign-in'>
