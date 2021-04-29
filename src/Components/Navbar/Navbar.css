@@ -61,15 +61,8 @@
   position: relative;
 }
 
-.navbar__link--active::after {
-  content: '';
-  display: block;
-  height: 2px;
-  width: 100%;
-  border-radius: 1px;
-  background-color: var(--color-purple);
-  position: absolute;
-  top: 28px;
+.navbar__link--active {
+  box-shadow: -17px 0 0 var(--color-grey-1), -20px 0 0 var(--color-purple);
 }
 
 /* Close Sidebar Button */
@@ -159,6 +152,22 @@
 
   .navbar__list-item {
     margin-left: 30px;
+  }
+
+  /* Active page link underline */
+  .navbar__link--active {
+    box-shadow: unset;
+  }
+
+  .navbar__link--active::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 100%;
+    border-radius: 1px;
+    background-color: var(--color-purple);
+    position: absolute;
+    top: 28px;
   }
 
   /* Sign In and Sign Out Buttons */
