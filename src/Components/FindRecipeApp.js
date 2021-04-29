@@ -16,6 +16,9 @@ const FindRecipeApp = () => {
           <Switch>
             <Route exact path='/' component={FindRecipe} />
             <Route path='/add-recipe' component={AddRecipe} />
+            <Route path='/:recipeName'>
+              <h1>Recipe Details Page Placeholder</h1>
+            </Route>
           </Switch>
         </Suspense>
       </Router>

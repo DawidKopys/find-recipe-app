@@ -1,5 +1,6 @@
 import React from 'react';
 import './RecipeCard.css';
+import { Link } from 'react-router-dom';
 
 const RecipeCard = ({
   recipeDetails: {
@@ -10,7 +11,11 @@ const RecipeCard = ({
   },
 }) => {
   return (
-    <div className='recipe-card recipes-list__recipe-card' key={id}>
+    <Link
+      to={`/${encodeURI(name)}`}
+      className='recipe-card recipes-list__recipe-card'
+      key={id}
+    >
       <img className='recipe-card__img' src={imageURL} alt={name} />
       <div className='recipe-info recipe-card__recipe-info'>
         <h3 className='recipe-info__recipe-name'>{name}</h3>
@@ -36,7 +41,7 @@ const RecipeCard = ({
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
