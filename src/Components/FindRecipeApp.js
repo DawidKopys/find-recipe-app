@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import './FindRecipeApp.css';
 import Navbar from 'Components/Navbar/Navbar';
 import RenderLoader from 'Components/RenderLoader/RenderLoader';
+import RecipeDetails from 'Components/RecipeDetails/RecipeDetails';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const FindRecipe = React.lazy(() => import('Components/FindRecipe/FindRecipe'));
@@ -16,9 +17,7 @@ const FindRecipeApp = () => {
           <Switch>
             <Route exact path='/' component={FindRecipe} />
             <Route path='/add-recipe' component={AddRecipe} />
-            <Route path='/:recipeName'>
-              <h1>Recipe Details Page Placeholder</h1>
-            </Route>
+            <Route path='/:recipeName' component={RecipeDetails} />
           </Switch>
         </Suspense>
       </Router>
