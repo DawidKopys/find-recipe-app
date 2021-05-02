@@ -11,6 +11,8 @@
   "author": "Dawid Kopyś",
   "license": "ISC",
   "dependencies": {
+    "autoprefixer": "^10.2.5",
+    "postcss-preset-env": "^6.7.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
@@ -28,6 +30,8 @@
     "dotenv-webpack": "^7.0.1",
     "html-webpack-plugin": "^5.1.0",
     "jest": "^26.6.3",
+    "postcss": "^8.2.13",
+    "postcss-loader": "^5.2.0",
     "react-test-renderer": "^17.0.2",
     "sass": "^1.32.8",
     "sass-loader": "^11.0.1",
@@ -36,5 +40,8 @@
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.7.3"
-  }
+  },
+  "browserslist": [
+    "> .05%"
+  ]
 }
