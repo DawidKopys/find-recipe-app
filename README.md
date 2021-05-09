@@ -27,6 +27,13 @@ npm start
 
 **Be sure to check out the app both on desktop and mobile!**
 
+Screenshots:
+
+- [mobile view](https://res.cloudinary.com/dyk3h7z17/image/upload/v1620565555/find-recipe-app-snapshots/find-recipe-app-mobile_aea6dm.png)
+- [mobile view with filters](https://res.cloudinary.com/dyk3h7z17/image/upload/v1620565556/find-recipe-app-snapshots/find-recipe-app-mobile-with-filters_jqlibd.png)
+- [desktop view](https://res.cloudinary.com/dyk3h7z17/image/upload/v1620565554/find-recipe-app-snapshots/find-recipe-app-desktop_fcw4vo.png)
+- [desktop view with filters](https://res.cloudinary.com/dyk3h7z17/image/upload/v1620565554/find-recipe-app-snapshots/find-recipe-app-desktop-with-filters_cevshe.png)
+
 ## What I learned by building this project:
 
 React:
